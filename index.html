@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Text and Paper</title>
+
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+        <!-- Your custom CSS -->
+        <link rel='stylesheet' type='text/css' href='css/style.css'>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Metamorphous|Source+Code+Pro" rel="stylesheet">
+
+    </head>
+    
+
+
+    <!-- START OF BODY -->
+    <body>
+        <div class="container row">
+            
+            <!-- header bar with login and stuff -->
+            <div class="header row">
+                <h1 class="header-text">Text and Paper</h1>
+                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+
+                
+            </div>
+
+            <div id="wrapper">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        User Name    
+                    </li>
+                    <li>
+                       Channels
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+    
+
+        </div>
+        <!-- /#wrapper -->
+
+
+            <!-- Main section -->
+            <div class="main-wrapper col-md-12 col-lg-12">
+                <!--  Main area with canvas -->
+                <div class="canvas col-lg-12">
+
+                </div>
+
+                <!-- Chat Area -->
+                <div id="chat">
+
+
+                    <!-- place where you type-->
+                    
+                    <input type="text" id="text-line" class="form-control input-lg" placeholder="Message">
+
+                
+
+
+                </div>
+
+
+            </div>
+
+            <!--
+            <footer class="footer">
+                <div class="container row text-center">
+                    <p> Text and Paper Copyright &copy; Ben MacNeil 2016</p>
+                </div>    
+            </footer>
+
+            -->
+
+
+        </div>
+
+
+
+
+
+
+        <!-- SCRIPTS -->
+
+
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        </script>
+
+        <!-- FIREBASE -->
+        <script src='https://www.gstatic.com/firebasejs/3.1.0/firebase.js'></script>
+
+        <!-- JQUERY -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        <!-- BOOTSTRAP JS (for modal an other functions!) -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-modal.min.js"></script>
+
+        <!-- Your main JS Script -->
+        <script src="js/app.js"></script>
+
+    </body>
+    <!-- END OF BODY -->
+
+
+
+
+</html>

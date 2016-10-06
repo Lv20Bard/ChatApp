@@ -1,0 +1,331 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/*
+	Defining the grid and boarders of the site
+*/
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+#header{
+	background-color: #4C4C4C;
+}
+
+html,
+body{
+	height: 100%;
+}
+
+body{
+	overflow-x: hidden;
+}
+
+
+.container{
+	height: 100%;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	width: 100%;
+}
+
+/*
+	Main structure of the site
+*/
+
+.header{
+	background-color: #4C4C4C;
+	top: 0;
+	z-index: 500;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: #000000;
+}	
+
+/*
+	Font Stylings
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+	font-family: 'EB Garamond', serif;
+}
+
+.header h1{
+		font-family: 'Metamorphous', cursive;
+}
+
+
+#sidebar-wrapper{
+	z-index:10;
+	height: 100%;
+	position: fixed;
+    left: 250px;
+    margin-left: -250px;
+    overflow-y: auto;
+    background-color: #636363;
+
+
+
+
+}
+
+.canvas{
+	background-color: #ffffff;
+
+}
+
+#chat{
+	background-color: #4C4C4C;
+	border-top-style: solid;
+	border-top-width: 2px;
+	border-top-color: #000000; 
+	
+
+	position: absolute;
+	left:0;
+	right:0;
+	bottom: 0;
+	height: 250px;
+	
+}
+
+#text-line{
+	position: absolute;
+	left:0;
+	right:0;
+	bottom: 0;
+	background-color: white;
+
+}
+
+.main-wrapper{
+	height: 100%;
+}
+
+
+
+
+/*
+	Styling for the header
+*/
+
+.header-text{
+	color: #ffffff;
+	float: left;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+#btn-user{
+	text-align: center;
+	max-height: 49px;
+	float: right;
+	background-color: #4C4C4C;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+	CSS for sidebar
+*/
+
+
+
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+ body {
+    overflow-x: hidden;
+ }
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
