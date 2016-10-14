@@ -1,213 +1,18 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
-  License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-
-/*
-	Defining the grid and boarders of the site
-*/
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-
-#header{
-	background-color: #4C4C4C;
-}
-
-html,
-body{
-	height: 100%;
-}
-
-body{
-	overflow-x: hidden;
-}
-
-
-.container{
-	height: 100%;
-	padding: 0 0 0 0;
-	margin: 0 0 0 0;
-	width: 100%;
-}
-
-/*
-	Main structure of the site
-*/
-
-.header{
-	background-color: #4C4C4C;
-	top: 0;
-	z-index: 500;
-	border-bottom-style: solid;
-	border-bottom-width: 2px;
-	border-bottom-color: #000000;
-}	
-
-/*
-	Font Stylings
-*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a {
-	font-family: 'EB Garamond', serif;
-}
-
-.header h1{
-		font-family: 'Metamorphous', cursive;
-}
-
-
-#sidebar-wrapper{
-	z-index:10;
-	height: 100%;
-	position: fixed;
-    left: 250px;
-    margin-left: -250px;
-    overflow-y: auto;
-    background-color: #636363;
-
-
-
-
-}
-
-.canvas{
-	background-color: #ffffff;
-
-}
-
-#chat{
-	background-color: #4C4C4C;
-	border-top-style: solid;
-	border-top-width: 2px;
-	border-top-color: #000000; 
-	
-
-	position: absolute;
-	left:0;
-	right:0;
-	bottom: 0;
-	height: 250px;
-	
-}
-
-#text-line{
-	position: absolute;
-	left:0;
-	right:0;
-	bottom: 0;
-	background-color: white;
-
-}
-
-.main-wrapper{
-	height: 100%;
-}
-
-
-
-
-/*
-	Styling for the header
-*/
-
-.header-text{
-	color: #ffffff;
-	float: left;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-}
-
-#btn-user{
-	text-align: center;
-	max-height: 49px;
-	float: right;
-	background-color: #4C4C4C;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-	CSS for sidebar
-*/
-
-
-
 /*!
  * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+body,html{
+	height: 100vh;
+	width: 100vw;
+}
+
 
  body {
     overflow-x: hidden;
+ 	/*this should be 100% but when i put 100% it doesn't go above 64px make sure I ask rob about this*/
+ 	
  }
 
 /* Toggle Styles */
@@ -232,11 +37,15 @@ a {
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #000;
+    background: #70060b;
+    border-right-color: #3e2611;
+    border-right-style: solid;
+
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -302,6 +111,597 @@ a {
     background: none;
 }
 
+
+/*
+Above this is the stuff from the template, Below is the I wrote, I will be overwriting things, this is just so
+I don;t have to mess with the template css
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a{
+	font-family: 'Laila', serif;
+	line-height: 14px;
+}
+
+
+#page-content-wrapper{
+	height: 100%;
+	width: 100%;
+}
+
+#wrapper,
+#page-content-wrapper .container-fluid,
+#page-content-wrapper .container-fluid .row{
+	height: 100%;
+}
+
+#logo{
+	font-family: 'Metamorphous', cursive;
+	color:#e3e292;
+	text-shadow: 1px 1px #bc8f65;
+	font-size: 26px;
+
+}
+
+/* Header things*/
+
+
+
+#header{
+	font-family: 'Metamorphous', cursive;
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	/*Id like to make this bigger, but adding hight isn't helpin*/
+	background-color: #4c2c1f;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+
+}
+
+/*Dice Things*/
+
+#dice-dropdown{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	height: 70px;
+	width: 70px;
+	text-align: center;
+}
+
+
+#dice-dropdown-window{
+
+}
+
+#d20-img{
+	height: 65px;
+	width: 55px;
+
+}
+
+#dice-dropdown-list{
+	background-color: #70060b;
+}
+
+#dice-dropdown-list a{
+	color: #e3e292;
+}
+
+
+#menu-toggle{
+	float:left;
+	margin-top: 10px;
+	margin-right: 15px;
+	margin-left: 10px;	
+	color: #cd000a;
+	background-color: #e3e292; 
+	border-style: none;
+
+	margin-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+
+}
+
+
+#login-modal-btn{
+	color: #cd000a;
+	background-color: #e3e292;
+}
+
+
+
+
+#canvas-section{
+	position: absolute;
+	top: 70px;
+	bottom: 246px;
+	left:0;
+	right:0;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+
+
+	background-color: #fffdf8;
+}	
+
+/* chat section */
+
+#chat-box{
+	border-top-style: solid;
+	border-top-width: 2px;
+
+	border-top-style: solid;
+	border-top-width: 2px;
+
+	overflow-x: auto;
+
+
+	position:absolute;
+	bottom: 46px;
+	left:0;
+	right:0;
+	height: 200px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+
+	background-color: #f2e2ae;
+}
+
+#text-line-window,
+#text-line{
+	position:absolute;
+	bottom: 0;
+	left:0;
+	right:0;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+
+	overflow: scroll;
+	overflow-x: hidden;
+
+	background-color: #f2e2ae;
+}
+
+#text-line{
+	border-color: #4c2c1f;
+	font-family: 'Laila', serif;
+	border-radius: 0;
+	border-left-style: none;
+	border-right-style: none;
+}
+
+.message{
+	padding-top: 5px;
+	font-size: 16px;
+	line-height: 16px;
+	padding-left: 3px;
+}
+
+
+
+/*Grid sections*/
+
+#mapGrid{
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:110px;
+	right:110px;
+	width: 75%;
+	height:100%;
+}
+
+
+#clear-table{
+	position: absolute;
+	bottom:5px;
+	right:5px;
+	height: 25px;
+
+}
+
+
+/*Table Stylings for grid*/
+td{
+	height: 12.5%;
+	width:  12.5%;
+
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	background-color: rgba(255,255,255,0)
+}
+
+
+
+/*Types of grid options*/
+.map-modal-image{
+	padding:15px 15px 15px 15px;
+}
+
+/*basic 5*/
+.top-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 5px;
+	
+
+}
+
+.bottom-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+}
+
+.left-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-left-color: #000000;
+	border-left-style: solid;
+	border-left-width: 5px;
+}
+
+.right-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 5px;
+}
+
+
+.clear-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+}
+
+
+
+/*2 sidedes oposites ones*/
+.left-right-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 5px;
+
+	border-left-color: #000000;
+	border-left-style: solid;
+	border-left-width: 5px;
+}
+
+
+
+.top-bottom-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 5px;
+
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+}
+
+
+/*2 sided triangle ones*/
+
+.top-left-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-left-color: #000000;
+	border-left-style: solid;
+	border-left-width: 5px;
+
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 5px;
+}
+
+.bottom-right-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 5px;
+
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+
+}
+
+.top-right-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 5px;
+
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 5px;
+}
+
+
+.bottom-left-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+
+	border-left-color: #000000;
+	border-left-style: solid;
+	border-left-width: 5px;
+
+}
+
+
+
+/*3 sided ones*/
+.top-left-right-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 5px;
+
+	border-left-color: #000000;
+	border-left-style: solid;
+	border-left-width: 5px;
+
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 5px;
+}
+
+
+
+
+
+.top-bottom-right-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 5px;
+
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 5px;
+
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+}
+
+
+
+
+.bottom-right-left-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-left-color: #000000;
+	border-left-style: solid;
+	border-left-width: 5px;
+
+
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 5px;
+
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+}
+
+
+.top-bottom-right-border{
+	border-style: solid;
+	border-color: 000000;
+	border-width: 1px;
+
+	border-right-color: #000000;
+	border-right-style: solid;
+	border-right-width: 5px;
+
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 5px;
+}
+
+
+
+
+
+/*Channel things on sidebar*/
+
+.channel-link{
+	color: #f2e2ae;
+	text-shadow: 1px 1px #bc8f65;
+	margin-left: 20px;
+	margin-top:5px;
+}
+
+
+.channel-link:hover{
+	color: white;
+	font-size: 16px;
+	text-decoration: none;
+
+}
+
+.channel-header {
+	font-family: 'Metamorphous', cursive;
+	color:#e3e292;
+	text-shadow: 1px 1px #bc8f65;
+	font-size: 24px;
+
+}
+
+.channel-current{
+	font-size: 18px;
+	font-weight: 500;
+	font-style: italic;
+}
+
+
+
+
+#channel-desc{
+	font-weight: 300;
+	font-family: 'Laila', serif;
+	color:#e3e292;
+	font-style:italic;
+	font-size: 16px;
+	margin-left: 70px;
+}
+
+#channel-name{
+	font-size: 36px;
+	padding-bottom:0px; 
+	padding-top:0px;
+	color: #f2e2ae;
+	text-shadow: 1px 1px #bc8f65;
+}
+
+#channel-wrapper{
+	padding-top: 15px;
+}
+
+/*section with buttons on sidebar*/
+
+#options{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100px;
+
+	background-color: #FF3848;
+
+	border-top-style:solid; 
+	border-top-width:5px;
+	border-top-color:#3e2611; 
+}
+
+#make-channel-btn{
+	width: 30px !important; 
+	height: 30px !important;
+	outline-offset: 0px;
+	text-align: center !important;
+	outline-width: 1px;
+	outline-color: #4c2c1f;
+	background-color: #e3e292;
+	color:#cd000a;
+
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+
+
+	padding: 0;
+
+}
+
+
+#logout-modal-btn{
+	border-style: none;
+	background-color: #70060b;
+	color: white;
+}
+
+
+/*User information section*/
+
+.logged-user{
+	margin: 20px 0 0 15px;
+}
+
+#profile-pic{
+	width:40px;
+	height: 40px;
+	margin-bottom:10px;
+	margin-bottom:10px;
+}
+
+#username{
+	color: #f2e2ae;
+	text-align: left;
+}
+
+#is-dm{
+	color:gold;
+}
+
+
+
+
+/*login modal*/
+
+.login-img{
+	width: 100%;
+
+}
+
+
+
+/*
+	Media Tags
+ */
+
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -320,7 +720,6 @@ a {
     }
 
     #page-content-wrapper {
-        padding: 20px;
         position: relative;
     }
 
@@ -328,4 +727,24 @@ a {
         position: relative;
         margin-right: 0;
     }
+
+
+
+
+}
+
+
+
+@media(max-width:768px){
+
+	#chat-box{
+
+		bottom: 0;
+		top: 70px;
+		height:auto;
+
+	}	
+
+
+
 }

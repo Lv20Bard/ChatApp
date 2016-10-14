@@ -12,95 +12,472 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Metamorphous|Source+Code+Pro" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Laila:300,400,500,600,700" rel="stylesheet">
 
     </head>
     
 
 
-    <!-- START OF BODY -->
-    <body>
-        <div class="container row">
-            
-            <!-- header bar with login and stuff -->
-            <div class="header row">
-                <h1 class="header-text">Text and Paper</h1>
-                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+<body>
 
-                
-            </div>
+    <div id="wrapper" style="display:none">
 
-            <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
 
-            <!-- Sidebar -->
-            <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        User Name    
-                    </li>
+                <h1 id="logo">
+                    Text And Paper
+                </h1>
+
+                <div id="channel-wrapper">
                     <li>
-                       Channels
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-flat" id="make-channel-btn" data-toggle="modal" data-target="#new-channel-modal">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <h2 class="channel-header">Channels</a>
                     </li>
 
-                </ul>
-            </div>
-            <!-- /#sidebar-wrapper -->
-
-    
-
-        </div>
-        <!-- /#wrapper -->
+                    <div id="channel-list">
 
 
-            <!-- Main section -->
-            <div class="main-wrapper col-md-12 col-lg-12">
-                <!--  Main area with canvas -->
-                <div class="canvas col-lg-12">
+                    </div>
+            </ul>
+
+
+
+
+                <div id="options">
+
+                        <!-- This is a little window with the username and profile pic, as well as a login and setting buttons -->
+                        <div class="logged-user">
+                            <div class="user-info">
+                                <!-- Users Profile picture, taken from whatevr social media they log in with -->
+                                <img id="profile-pic" class="img-circle" src="assets/profile_default.jpg">
+
+                                <span id="username"> Default </span>
+                                <p id="is-dm" class="glyphicon glyphicon-king"></p>
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        <button type="button" id="logout-modal-btn" class="btn btn-xs" data-toggle="modal" data-target="#logout-modal">
+                            Logout
+                        </button>
+
+
+
+
+
+                        <!-- Settings Button -->
+                        <div class="dropdown pull-right">
+                          <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
+                          </button>
+                          <ul class="dropdown-menu " aria-labelledby="dLabel">
+                            <li>Settings</li>
+                            <li>Other Stuff</li>
+                          </ul>
+                        </div>
+
 
                 </div>
 
-                <!-- Chat Area -->
-                <div id="chat">
+
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -This is where everything in the page needs to go, to make sure the sidebar stays working -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- This is the header for the content section -->
+                    <!-- Header -->
 
 
-                    <!-- place where you type-->
+
+                    <div id="header" class="col-lg-12 col-sm-12">
+                        
+
+                        <div id="dice-dropdown-window" class="dropdown pull-right">
+
+                            <!-- Dropdown menu you can use to roll dice -->            
+                            <a href="#" class="dropdown-toggle" id="dice-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-responsive" id="d20-img" src="assets/d20.png" 
+                                onmouseover="this.src='assets/d20hover.png';" onmouseout="this.src='assets/d20.png';">
+                            </a>
+
+                            <ul class="dropdown-menu" id="dice-dropdown-list" aria-labelledby="dice-dropdown">
+                                <!-- d2 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d2-btn">d2</a>
+                                </li>
+                                <!-- d3 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d3-btn">d3</a>
+                                </li>
+                                <!-- d4 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d4-btn">d4</a>
+                                </li>
+                                <!-- d6 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d6-btn">d6</a>
+                                </li>
+                                <!-- d8 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d8-btn">d8</a>
+                                </li>
+                                <!-- d10 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d10-btn">d10</a>
+                                </li>
+                                <!-- d12 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d12-btn">d12</a>
+                                </li>
+                                <!-- d20 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d20-btn">d20</a>
+                                </li>
+                                <!-- d100 -->
+                                <li>
+                                    <a href="#" class="dice-selector" id="d100-btn">d100</a>
+                                </li>
+
+                            </ul> 
+                        </div>
+
+
+
+
+
+
+
+
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+                            <i class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></i>
+                        </a>
+
+                        <h2 id="channel-name">DEFAULT CHANNEL</h2>
+                        <p id="channel-desc">YOU AREN'T SUPPOSED TO BE HERE</p>
+
+                        
+                    </div>  
                     
-                    <input type="text" id="text-line" class="form-control input-lg" placeholder="Message">
+                    <!-- Canvas Section -->
+                    <div id="canvas-section">
+                        <table id="mapGrid">
+                            <tr id="gridRow1">
+                                <td id = "1-1" class="gridbox" data-row="1" data-col="1"></td>
+                                <td id = "1-2" class="gridbox" data-row="1" data-col="2"></td>
+                                <td id = "1-3" class="gridbox" data-row="1" data-col="3"></td>
+                                <td id = "1-4" class="gridbox" data-row="1" data-col="4"></td>
+                                <td id = "1-5" class="gridbox" data-row="1" data-col="5"></td>
+                                <td id = "1-6" class="gridbox" data-row="1" data-col="6"></td>
+                                <td id = "1-7" class="gridbox" data-row="1" data-col="7"></td>
+                                <td id = "1-8" class="gridbox" data-row="1" data-col="8"></td>
+                            </tr>
+
+                            <tr id="gridRow2">
+                                <td id = "2-1" class="gridbox" data-row="2" data-col="1"></td>
+                                <td id = "2-2" class="gridbox" data-row="2" data-col="2"></td>
+                                <td id = "2-3" class="gridbox" data-row="2" data-col="3"></td>
+                                <td id = "2-4" class="gridbox" data-row="2" data-col="4"></td>
+                                <td id = "2-5" class="gridbox" data-row="2" data-col="5"></td>
+                                <td id = "2-6" class="gridbox" data-row="2" data-col="6"></td>
+                                <td id = "2-7" class="gridbox" data-row="2" data-col="7"></td>
+                                <td id = "2-8" class="gridbox" data-row="2" data-col="8"></td>
+                            </tr>
+                            
+                            <tr id="gridRow3">
+                                <td id = "3-1" class="gridbox" data-row="3" data-col="1"></td>
+                                <td id = "3-2" class="gridbox" data-row="3" data-col="2"></td>
+                                <td id = "3-3" class="gridbox" data-row="3" data-col="3"></td>
+                                <td id = "3-4" class="gridbox" data-row="3" data-col="4"></td>
+                                <td id = "3-5" class="gridbox" data-row="3" data-col="5"></td>
+                                <td id = "3-6" class="gridbox" data-row="3" data-col="6"></td>
+                                <td id = "3-7" class="gridbox" data-row="3" data-col="7"></td>
+                                <td id = "3-8" class="gridbox" data-row="3" data-col="8"></td>
+
+                            </tr>
+                            
+                            <tr id="gridRow4">
+                                <td id = "4-1" class="gridbox" data-row="4" data-col="1"></td>
+                                <td id = "4-2" class="gridbox" data-row="4" data-col="2"></td>
+                                <td id = "4-3" class="gridbox" data-row="4" data-col="3"></td>
+                                <td id = "4-4" class="gridbox" data-row="4" data-col="4"></td>
+                                <td id = "4-5" class="gridbox" data-row="4" data-col="5"></td>
+                                <td id = "4-6" class="gridbox" data-row="4" data-col="6"></td>
+                                <td id = "4-7" class="gridbox" data-row="4" data-col="7"></td>
+                                <td id = "4-8" class="gridbox" data-row="4" data-col="8"></td>
+                            </tr>
+
+                            <tr id="gridRow5">
+                                <td id = "5-1" class="gridbox" data-row="5" data-col="1"></td>
+                                <td id = "5-2" class="gridbox" data-row="5" data-col="2"></td>
+                                <td id = "5-3" class="gridbox" data-row="5" data-col="3"></td>
+                                <td id = "5-4" class="gridbox" data-row="5" data-col="4"></td>
+                                <td id = "5-5" class="gridbox" data-row="5" data-col="5"></td>
+                                <td id = "5-6" class="gridbox" data-row="5" data-col="6"></td>
+                                <td id = "5-7" class="gridbox" data-row="5" data-col="7"></td>
+                                <td id = "5-8" class="gridbox" data-row="5" data-col="8"></td>
+                            </tr>
+                            <tr id="gridRow6">
+                                <td id = "6-1" class="gridbox" data-row="6" data-col="1"></td>
+                                <td id = "6-2" class="gridbox" data-row="6" data-col="2"></td>
+                                <td id = "6-3" class="gridbox" data-row="6" data-col="3"></td>
+                                <td id = "6-4" class="gridbox" data-row="6" data-col="4"></td>
+                                <td id = "6-5" class="gridbox" data-row="6" data-col="5"></td>
+                                <td id = "6-6" class="gridbox" data-row="6" data-col="6"></td>
+                                <td id = "6-7" class="gridbox" data-row="6" data-col="7"></td>
+                                <td id = "6-8" class="gridbox" data-row="6" data-col="8"></td>
+                            </tr>
+
+                            <tr id="gridRow7">
+                                <td id = "7-1" class="gridbox" data-row="7" data-col="1"></td>
+                                <td id = "7-2" class="gridbox" data-row="7" data-col="2"></td>
+                                <td id = "7-3" class="gridbox" data-row="7" data-col="3"></td>
+                                <td id = "7-4" class="gridbox" data-row="7" data-col="4"></td>
+                                <td id = "7-5" class="gridbox" data-row="7" data-col="5"></td>
+                                <td id = "7-6" class="gridbox" data-row="7" data-col="6"></td>
+                                <td id = "7-7" class="gridbox" data-row="7" data-col="7"></td>
+                                <td id = "7-8" class="gridbox" data-row="7" data-col="8"></td>
+                            </tr>
+
+                            <tr id="gridRow8">
+                                <td id = "8-1" class="gridbox" data-row="8" data-col="1"></td>
+                                <td id = "8-2" class="gridbox" data-row="8" data-col="2"></td>
+                                <td id = "8-3" class="gridbox" data-row="8" data-col="3"></td>
+                                <td id = "8-4" class="gridbox" data-row="8" data-col="4"></td>
+                                <td id = "8-5" class="gridbox" data-row="8" data-col="5"></td>
+                                <td id = "8-6" class="gridbox" data-row="8" data-col="6"></td>
+                                <td id = "8-7" class="gridbox" data-row="8" data-col="7"></td>
+                                <td id = "8-8" class="gridbox" data-row="8" data-col="8"></td>
+                            </tr>
+
+
+                        
+                        </table>
+                        <button id="clear-table">Clear</button>
+                    </div>
+
+
+
+
+                    <!-- Chat Section -->
+                    <div id="chat-box">
+                    <!-- Messages get appended here -->
+                    </div>
+
+                    <div class="text-line-window">
+                        <input type="text" id="text-line" class="form-control input-lg" placeholder="Message">
+                    </div>
+
 
                 
-
-
                 </div>
-
-
             </div>
-
-            <!--
-            <footer class="footer">
-                <div class="container row text-center">
-                    <p> Text and Paper Copyright &copy; Ben MacNeil 2016</p>
-                </div>    
-            </footer>
-
-            -->
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
 
 
+
+
+
+
+
+
+
+
+
+        <!-- ************************************ Modal Windows *************************************************************************************** -->
+        <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="logoutModal">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title" id="LogoutModalLabel">Logout</h4>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <p>Are you sure?</p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                        <button type="button" id="logout-btn" class="btn btn-danger">Yes</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
 
+        <!-- This is a big modal that shows up and blocks the page until you login -->
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="loginmodal">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div id="login-modal-header" class="modal-header text-center">
+                        <h4 class="modal-title" id="LoginModalLabel">Login</h4>
+                    </div>    
+
+                    <!-- This will present you with a few options for how you want to login -->
+                    
+
+                    <div class="modal-body text-center">
+                        <br>
+                        <div class="row">
+
+                            <!-- Facebook Login -->
+                            <div class="col-sm-3">
+                                <a id="facebook-signin" class="login-img" >
+                                    <img id="facebooklogo" class="signin-btn img-responsive" src="assets/fblogo.png">
+                                    <p>Facebook</p>
+                                </a>
+                            </div>
+
+                            <!-- Google Login -->
+                            <div class="col-sm-3">
+                                <a id="google-signin" class="login-img " >
+                                    <img id="googlelogo" class="signin-btn img-responsive" src="assets/googlelogo.png">
+                                    <p>Google</p>
+                                </a> 
+                            </div>
+
+                            <!-- Twitter Login -->
+                            <div class="col-sm-3">
+                                <a id="twitter-signin" class="login-img" >
+                                    <img id="twitterlogo" class="signin-btn img-responsive" src="assets/twitterlogo.png">
+                                    <p>Twitter</p>
+                                </a>
+                            </div>
+
+                            <!-- Github Login -->
+                            <div class="col-sm-3">
+                                <a id="github-signin" class="login-img" >
+                                    <img id="githublogo" class="signin-btn img-responsive" src="assets/githublogo.png">
+                                    <p>GitHub</p>
+                                </a>
+                            </div>
+
+                        </div>
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- This modal is for adding new channels -->
+        <div class="modal fade" id="new-channel-modal" tabindex="-1" role="dialog" aria-labelledby="newchannelmodal">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    
+                    <!-- Header -->
+                    <div id="new-channel-modal-header" class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title" id="new-channel-modal-label">Create New Channel</h3>
+                    </div>    
+
+
+                    <!-- body -->
+                    <div class="modal-body" id="new-channel-modal-body">
+                        <br>
+                        <div class="row"> 
+
+                            <div class= "col-lg-10 offset-2">
+                                <h2>What is the new channel's title?</h2>
+                                <input type="text" id="new-channel-title" class="form-control input-lg" placeholder="Channel Title">
+                            </div>
+                            <br>
+                            <div class="col-lg-10 offset-2">
+                                <h2>What is the description of the new channel?</h2>
+                                <input type="text" id="new-channel-desc" class="form-control input-lg" placeholder="Channel Description">
+                            </div>
+
+                            <div>
+                                <!-- This will be a note that says that making a new channel makes you the DM of hat channel -->
+
+                            </div>    
+                        </div>    
+                    </div>  
+
+
+                    <!-- footer -->
+                    <div class="modal-footer" id="new-channel-modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        <button type="button" id="make-new-channel" class="btn btn-success">Submit</button>          
+                    </div>
+
+
+                </div>
+            </div>
+        </div>        
+
+
+        <!-- modal for drawing on the map -->
+        <div class="modal fade" id="map-draw-modal" tabindex="-1" role="dialog" aria-labelledby="mapdrawmodal">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    
+                    <!-- Header -->
+                    <div id="map-draw-modal-header" class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title" id="map-draw-modal-label">Draw</h3>
+                    </div>    
+
+
+                    <!-- body -->
+                    <div class="modal-body" id="map-draw-modal-body">
+                        <img class="img-responsive map-modal-img" data-theClass="clear-border" src="assets/BorderSides/borderclear.png">
+                        <img class="img-responsive map-modal-img" data-theClass="bottom-border" src="assets/BorderSides/borderbottom.png">
+                        <img class="img-responsive map-modal-img" data-theClass="top-border" src="assets/BorderSides/bordertop.png">
+                        <img class="img-responsive map-modal-img" data-theClass="left-border" src="assets/BorderSides/borderleft.png">
+                        <img class="img-responsive map-modal-img" data-theClass="right-border" src="assets/BorderSides/borderright.png">
+                        <img class="img-responsive map-modal-img" data-theClass="bottom-left-border" src="assets/BorderSides/borderleftbottom.png">
+                        <img class="img-responsive map-modal-img" data-theClass="left-right-border" src="assets/BorderSides/borderleftright.png">
+                        <img class="img-responsive map-modal-img" data-theClass="top-left-border" src="assets/BorderSides/borderlefttop.png">
+                        <img class="img-responsive map-modal-img" data-theClass="top-right-left-border" src="assets/BorderSides/borderlefttopright.png">
+                        <img class="img-responsive map-modal-img" data-theClass="bottom-right" src="assets/BorderSides/borderrightbottom.png">
+                        <img class="img-responsive map-modal-img" data-theClass="top-bottom-border" src="assets/BorderSides/bordertopbottom.png">
+                        <img class="img-responsive map-modal-img" data-theClass="top-bottom-right-border" src="assets/BorderSides/bordertopbottomright.png">
+                        <img class="img-responsive map-modal-img" data-theClass="top-right-border" src="assets/BorderSides/bordertopright.png">
+                        <img class="img-responsive map-modal-img" data-theClass="bottom-right-left-border" src="assets/BorderSides/rightbottomleft.png">
+                        <img class="img-responsive map-modal-img" data-theClass="top-bottom-right" src="assets/BorderSides/toprightbottom.png">
+                    </div>  
+
+
+                    <!-- footer -->
+                    <div class="modal-footer" id="map-draw-modal-footer">      
+                    </div>
+
+
+                </div>
+            </div>
+        </div>        
 
 
 
-        <!-- SCRIPTS -->
 
 
-        <!-- Menu Toggle Script -->
-        <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-        </script>
+        <!-- ***************************************************** End Modal Windows ****************************************************************** -->
+
+
+
+
+
+
+        <!-- ********************************************************** SCRIPTS *********************************************************************** -->
 
         <!-- FIREBASE -->
         <script src='https://www.gstatic.com/firebasejs/3.1.0/firebase.js'></script>
@@ -109,15 +486,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         <!-- BOOTSTRAP JS (for modal an other functions!) -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-modal.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 
         <!-- Your main JS Script -->
         <script src="js/app.js"></script>
 
+
+
     </body>
     <!-- END OF BODY -->
-
-
-
-
 </html>
+<!-- END OF DOCUMENT -->
