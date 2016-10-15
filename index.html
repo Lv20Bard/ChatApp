@@ -302,16 +302,16 @@
         <!-- ************************************ Modal Windows *************************************************************************************** -->
         <div class="modal fade" id="logout-modal" tabindex="-1" role="dialog" aria-labelledby="logoutModal">
             <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
+                <div class="modal-content" id="logout-modal-content">
+                    <div class="modal-header text-center" id="logout-modal-header">
                         <h4 class="modal-title" id="LogoutModalLabel">Logout</h4>
                     </div>
 
-                    <div class="modal-body text-center">
+                    <div class="modal-body text-center" id="logout-modal-body">
                         <p>Are you sure?</p>
                     </div>
 
-                    <div class="modal-footer">
+                    <div class="modal-footer" id="logout-modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                         <button type="button" id="logout-btn" class="btn btn-danger">Yes</button>
                     </div>
@@ -332,13 +332,13 @@
                     <!-- This will present you with a few options for how you want to login -->
                     
 
-                    <div class="modal-body text-center">
+                    <div class="modal-body text-center" id="login-modal-body">
                         <br>
                         <div class="row">
 
                             <!-- Facebook Login -->
                             <div class="col-sm-3">
-                                <a id="facebook-signin" class="login-img" >
+                                <a id="facebook-signin" class="img-responsive login-img" >
                                     <img id="facebooklogo" class="signin-btn img-responsive" src="assets/fblogo.png">
                                     <p>Facebook</p>
                                 </a>
@@ -346,7 +346,7 @@
 
                             <!-- Google Login -->
                             <div class="col-sm-3">
-                                <a id="google-signin" class="login-img " >
+                                <a id="google-signin" class="img-responsive login-img " >
                                     <img id="googlelogo" class="signin-btn img-responsive" src="assets/googlelogo.png">
                                     <p>Google</p>
                                 </a> 
@@ -354,7 +354,7 @@
 
                             <!-- Twitter Login -->
                             <div class="col-sm-3">
-                                <a id="twitter-signin" class="login-img" >
+                                <a id="twitter-signin" class="img-responsive  login-img" >
                                     <img id="twitterlogo" class="signin-btn img-responsive" src="assets/twitterlogo.png">
                                     <p>Twitter</p>
                                 </a>
@@ -362,7 +362,7 @@
 
                             <!-- Github Login -->
                             <div class="col-sm-3">
-                                <a id="github-signin" class="login-img" >
+                                <a id="github-signin" class="img-responsive  login-img" >
                                     <img id="githublogo" class="signin-btn img-responsive" src="assets/githublogo.png">
                                     <p>GitHub</p>
                                 </a>
@@ -371,7 +371,7 @@
                         </div>
                         <br>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer" id="login-modal-footer">
                     </div>
                 </div>
             </div>
@@ -428,7 +428,7 @@
         <!-- modal for drawing on the map -->
         <div class="modal fade" id="map-draw-modal" tabindex="-1" role="dialog" aria-labelledby="mapdrawmodal">
             <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content" id="map-modal-content">
+                <div class="modal-content" id="map-draw-modal-content">
                     
                     <!-- Header -->
                     <div id="map-draw-modal-header" class="modal-header">
@@ -450,10 +450,10 @@
                         <img class="col-lg-3 map-modal-img" data-theClass="top-right-left-border" src="assets/BorderSides/borderlefttopright.png">
                         <img class="col-lg-3 map-modal-img" data-theClass="bottom-right-border" src="assets/BorderSides/borderrightbottom.png">
                         <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-border" src="assets/BorderSides/bordertopbottom.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-right-border" src="assets/BorderSides/bordertopbottomright.png">
+                        <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-left-border" src="assets/BorderSides/bordertopbottomleft.png">
                         <img class="col-lg-3 map-modal-img" data-theClass="top-right-border" src="assets/BorderSides/bordertopright.png">
                         <img class="col-lg-3 map-modal-img" data-theClass="bottom-right-left-border" src="assets/BorderSides/rightbottomleft.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-right" src="assets/BorderSides/toprightbottom.png">
+                        <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-right-border" src="assets/BorderSides/toprightbottom.png">
                         <img class="col-lg-3 map-modal-img" data-theClass="solidBox" src="assets/BorderSides/solid.png">
                     </div>  
 
