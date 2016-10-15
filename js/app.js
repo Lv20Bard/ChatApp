@@ -248,18 +248,19 @@ $(document).ready(function() {
 
 
 		$('.gridbox').click(function(e){
-			pos.x = $(this).data('col');
-			pos.y = $(this).data('row');
-			$('#map-draw-modal').modal('show');
+			isDM();
+			if(loggedUser.currDM){
+				pos.x = $(this).data('col');
+				pos.y = $(this).data('row');
+				$('#map-draw-modal').modal('show');
 
-			console.log("X:"+pos.x+"  Y:"+pos.y);
-
+			}
 		});
 
 
 		$('.map-modal-img').click(function(e){
-			var theClass = $(this).data('theClass');
-			gridRef.child(currChannel.id).child(pos.x).child(pos.y).push({theClass:theClass});
+			var settingClass = $(this).data('theclass');
+			gridRef.child(currChannel.id).child(pos.x).child(pos.y).push({theClass:settingClass});
 			refreshGrid(gridRef,currChannel.id);
 		});
 
@@ -501,10 +502,9 @@ function refreshMessages (messageRef,channelID){
 		messageRef.child(channelID).on('value',function(snapshot){
 			var messages = snapshot.val();
 
-			var keys = Object.keys(messages);
-
 			//clear the box before we start appending
 			$('#chat-box').html(``);
+			var keys = Object.keys(messages);
 
 			for(i = 0; i <keys.length; i++){
 				//Add the message to the chat box
@@ -529,8 +529,9 @@ function refreshGrid(gridRef, channelID){
 				var cols = Object.keys(grid[rows[i]]);
 				for(var j = 0; j<cols.length; j++){
 					var currClass = grid[rows[i]][cols[j]];
+					var currSquare = ("#"+i+"-"+j+"");
 					
-
+					$(currSquare).addClass(currClass);
 				}
 			}
 		}
