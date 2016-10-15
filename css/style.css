@@ -336,7 +336,7 @@ td{
 /*basic 5*/
 .top-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-top-color: #000000;
@@ -348,7 +348,7 @@ td{
 
 .bottom-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-bottom-color: #000000;
@@ -358,7 +358,7 @@ td{
 
 .left-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-left-color: #000000;
@@ -368,7 +368,7 @@ td{
 
 .right-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-right-color: #000000;
@@ -379,7 +379,7 @@ td{
 
 .clear-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 }
 
@@ -388,7 +388,7 @@ td{
 /*2 sidedes oposites ones*/
 .left-right-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-right-color: #000000;
@@ -404,7 +404,7 @@ td{
 
 .top-bottom-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-top-color: #000000;
@@ -421,7 +421,7 @@ td{
 
 .top-left-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-left-color: #000000;
@@ -435,7 +435,7 @@ td{
 
 .bottom-right-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-right-color: #000000;
@@ -450,7 +450,7 @@ td{
 
 .top-right-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-right-color: #000000;
@@ -465,7 +465,7 @@ td{
 
 .bottom-left-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-bottom-color: #000000;
@@ -481,9 +481,9 @@ td{
 
 
 /*3 sided ones*/
-.top-left-right-border{
+.top-right-left-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-right-color: #000000;
@@ -505,7 +505,7 @@ td{
 
 .top-bottom-right-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-right-color: #000000;
@@ -526,7 +526,7 @@ td{
 
 .bottom-right-left-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-left-color: #000000;
@@ -546,7 +546,7 @@ td{
 
 .top-bottom-right-border{
 	border-style: solid;
-	border-color: 000000;
+	border-color: #000000;
 	border-width: 1px;
 
 	border-right-color: #000000;
@@ -563,6 +563,12 @@ td{
 }
 
 
+.solidBox{
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px;
+	background-color: #000000;
+}
 
 
 
@@ -685,7 +691,16 @@ td{
 	color:gold;
 }
 
+.map-modal-img{
+	padding: 5px 5px 5px 5px;
+	margin: 5px 5px 5px 5px;
+}
 
+.map-modal-img:hover{
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px;
+}
 
 
 /*login modal*/

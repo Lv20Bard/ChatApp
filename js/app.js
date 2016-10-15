@@ -245,8 +245,6 @@ $(document).ready(function() {
 
 
 		//changing the grid
-
-
 		$('.gridbox').click(function(e){
 			isDM();
 			if(loggedUser.currDM){
@@ -261,7 +259,7 @@ $(document).ready(function() {
 		$('.map-modal-img').click(function(e){
 			var settingClass = $(this).data('theclass');
 			gridRef.child(currChannel.id).child(pos.x).child(pos.y).push({theClass:settingClass});
-			refreshGrid(gridRef,currChannel.id);
+			$('#map-draw-modal').modal('hide');
 		});
 
 
@@ -364,10 +362,9 @@ $(document).ready(function() {
 
 	    //clear the table button
 	    $('#clear-table').click(function(e){
-	    	$('td').removeClass("top-border");
-			$('td').removeClass("bottom-border");
-			$('td').removeClass("left-border");
-			$('td').removeClass("right-border");
+	    	$('td').attr('class','gridbox');
+	    	gridRef.child(currChannel.id).removeValue();
+	    	gridRef.child(currChannel.id).delete();
 	    });
 
 		refreshGrid(gridRef,currChannel.id);
@@ -528,10 +525,15 @@ function refreshGrid(gridRef, channelID){
 			for(var i = 0; i<rows.length; i++){
 				var cols = Object.keys(grid[rows[i]]);
 				for(var j = 0; j<cols.length; j++){
-					var currClass = grid[rows[i]][cols[j]];
-					var currSquare = ("#"+i+"-"+j+"");
 					
-					$(currSquare).addClass(currClass);
+					var currClass = grid[rows[i]][cols[j]];
+					classKey = Object.keys(currClass)[0];
+					currClass[classKey].theClass;
+
+					var currSquare = ("#"+cols[j]+"-"+rows[i]+"");
+
+					$(currSquare).attr('class', 'gridbox');
+					$(currSquare).addClass(currClass[classKey].theClass);
 				}
 			}
 		}
