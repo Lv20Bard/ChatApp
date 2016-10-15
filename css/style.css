@@ -500,7 +500,23 @@ td{
 }
 
 
+.top-bottom-left-border{
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px;
 
+	border-left-color: #000000;
+	border-left-style: solid;
+	border-left-width: 5px;
+
+	border-top-color: #000000;
+	border-top-style: solid;
+	border-top-width: 5px;
+
+	border-bottom-color: #000000;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+}
 
 
 .top-bottom-right-border{
@@ -566,8 +582,9 @@ td{
 .solidBox{
 	border-style: solid;
 	border-color: #000000;
-	border-width: 1px;
+	border-width: 5px;
 	background-color: #000000;
+
 }
 
 
@@ -691,9 +708,91 @@ td{
 	color:gold;
 }
 
+
+/*MODAL STYLES*/
+
+
+
+/*login modal*/
+.login-img{
+	width: 100%;
+
+}
+
+
+#login-modal{
+
+}
+
+#login-modal-header{
+	background-color: #e3e292;
+	border-bottom-color: #4c2c1f;
+}
+
+#login-modal-body{
+	background-color: #e3e292;
+}
+
+#login-modal-footer{
+	background-color: #e3e292;
+	border-top-color: #4c2c1f;
+}
+
+
+
+/*logout modal*/
+
+#logout-modal{
+
+}
+
+#logout-modal-header{
+	background-color: #e3e292;
+	border-bottom-color: #4c2c1f;
+}
+
+#logout-modal-content{
+
+}
+
+#logout-modal-body{
+	background-color: #e3e292;
+}
+
+#logout-modal-footer{
+	background-color: #e3e292;
+	border-top-color: #4c2c1f;
+}
+
+/*newchannel modal*/
+#new-channel-modal{
+
+}
+
+#new-channel-modal-header{
+	background-color: #e3e292;
+	border-bottom-color: #4c2c1f;
+}
+
+
+#new-channel-modal-body{
+	background-color: #e3e292;
+
+}
+
+
+#new-channel-modal-footer{
+	background-color: #e3e292;
+	border-top-color: #4c2c1f;
+}
+
+
+/*map-draw modal*/
+
 .map-modal-img{
 	padding: 5px 5px 5px 5px;
-	margin: 5px 5px 5px 5px;
+	margin: 10px 10px 10px 10px;
+
 }
 
 .map-modal-img:hover{
@@ -703,20 +802,33 @@ td{
 }
 
 
-/*login modal*/
-
-.login-img{
-	width: 100%;
+#map-draw-modal{
 
 }
 
+#map-draw-modal-content{
+	background-color: #e3e292;
+}
+
+#map-draw-modal-header{
+	background-color: #e3e292;
+	border-bottom-color: #4c2c1f;
+}
+
+#map-draw-modal-body{
+	max-height: 230px;
+	background-color: #e3e292;
+}
+
+#map-draw-modal-footer{
+	background-color: #e3e292;
+	border-top-color: #4c2c1f;
+}	
 
 
-/*
-	Media Tags
- */
+/*END MODAL STYLES*/
 
-
+/*MEDIA TAGS*/
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;

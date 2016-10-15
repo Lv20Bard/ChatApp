@@ -160,7 +160,9 @@ $(document).ready(function() {
 			$('#clear-table').hide();	
 		}
 
-    
+		refreshMessages(messageRef,currChannel.id);
+		refreshGrid(gridRef,currChannel.id);
+
     });
 
 
@@ -224,7 +226,7 @@ $(document).ready(function() {
 				$('#channel-name').text(currChannel.name);
     			$('#channel-desc').text(currChannel.desc);
 
-    				
+
     			
 
 			});
@@ -258,6 +260,7 @@ $(document).ready(function() {
 
 		$('.map-modal-img').click(function(e){
 			var settingClass = $(this).data('theclass');
+			gridRef.child(currChannel.id).child(pos.x).child(pos.y).remove();
 			gridRef.child(currChannel.id).child(pos.x).child(pos.y).push({theClass:settingClass});
 			$('#map-draw-modal').modal('hide');
 		});
@@ -363,8 +366,8 @@ $(document).ready(function() {
 	    //clear the table button
 	    $('#clear-table').click(function(e){
 	    	$('td').attr('class','gridbox');
-	    	gridRef.child(currChannel.id).removeValue();
-	    	gridRef.child(currChannel.id).delete();
+	    	gridRef.child(currChannel.id).remove();
+	    	refreshGrid(gridRef,currChannel.id);
 	    });
 
 		refreshGrid(gridRef,currChannel.id);
@@ -517,7 +520,7 @@ function refreshGrid(gridRef, channelID){
 	//empty grid doesn't affect anything, so we don't have a case for it
 	gridRef.child(channelID).on('value',function(snapshot){
 		var grid = snapshot.val();
-
+		$('td').attr('class', 'gridbox');
 
 		if(grid!=null){
 			var rows = Object.keys(grid);
@@ -533,6 +536,7 @@ function refreshGrid(gridRef, channelID){
 					var currSquare = ("#"+cols[j]+"-"+rows[i]+"");
 
 					$(currSquare).attr('class', 'gridbox');
+
 					$(currSquare).addClass(currClass[classKey].theClass);
 				}
 			}
