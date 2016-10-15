@@ -160,6 +160,7 @@ $(document).ready(function() {
 			$('#clear-table').hide();	
 		}
 
+		
 		refreshMessages(messageRef,currChannel.id);
 		refreshGrid(gridRef,currChannel.id);
 
