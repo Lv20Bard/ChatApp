@@ -40,8 +40,7 @@
                         <h2 class="channel-header">Channels</a>
                     </li>
 
-                    <div id="channel-list">
-
+                    <div id="channel-list"> 
 
                     </div>
             </ul>
@@ -75,16 +74,11 @@
 
 
 
-                        <!-- Settings Button -->
-                        <div class="dropdown pull-right">
-                          <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
-                          </button>
-                          <ul class="dropdown-menu " aria-labelledby="dLabel">
-                            <li>Settings</li>
-                            <li>Other Stuff</li>
-                          </ul>
-                        </div>
+                        <!-- Settings Button opens userSettingModal -->
+                        <button type="button" class="btn btn-flat btn-xs pull-right glyphicon glyphicon-cog" id="user-settings-modal-btn" data-toggle="modal" data-target="#user-settings-modal">
+
+                        </button>
+
 
 
                 </div>
@@ -172,99 +166,100 @@
                     </div>  
                     
                     <!-- Canvas Section -->
+                    <!-- This is the grossest thing i have seen in my life -->
+                    <!-- Some of the worst and uglyist implmentation ive ever written -->
                     <div id="canvas-section">
-                        <table id="mapGrid">
-                            <tr id="gridRow1">
-                                <td id = "1-1" class="gridbox" data-row="1" data-col="1"></td>
-                                <td id = "1-2" class="gridbox" data-row="1" data-col="2"></td>
-                                <td id = "1-3" class="gridbox" data-row="1" data-col="3"></td>
-                                <td id = "1-4" class="gridbox" data-row="1" data-col="4"></td>
-                                <td id = "1-5" class="gridbox" data-row="1" data-col="5"></td>
-                                <td id = "1-6" class="gridbox" data-row="1" data-col="6"></td>
-                                <td id = "1-7" class="gridbox" data-row="1" data-col="7"></td>
-                                <td id = "1-8" class="gridbox" data-row="1" data-col="8"></td>
-                            </tr>
+                        <div id="divTable">
+                            <div class="divRow" id="gridRow1">
+                                <div class="divCell" id = "1-1" class="gridbox" data-row="1" data-col="1"> </div>
+                                <div class="divCell" id = "1-2" class="gridbox" data-row="1" data-col="2"> </div>
+                                <div class="divCell" id = "1-3" class="gridbox" data-row="1" data-col="3"> </div>
+                                <div class="divCell" id = "1-4" class="gridbox" data-row="1" data-col="4"> </div>
+                                <div class="divCell" id = "1-5" class="gridbox" data-row="1" data-col="5"> </div>
+                                <div class="divCell" id = "1-6" class="gridbox" data-row="1" data-col="6"> </div>
+                                <div class="divCell" id = "1-7" class="gridbox" data-row="1" data-col="7"> </div>
+                                <div class="divCell" id = "1-8" class="gridbox" data-row="1" data-col="8"> </div>
+                            </div>
 
-                            <tr id="gridRow2">
-                                <td id = "2-1" class="gridbox" data-row="2" data-col="1"></td>
-                                <td id = "2-2" class="gridbox" data-row="2" data-col="2"></td>
-                                <td id = "2-3" class="gridbox" data-row="2" data-col="3"></td>
-                                <td id = "2-4" class="gridbox" data-row="2" data-col="4"></td>
-                                <td id = "2-5" class="gridbox" data-row="2" data-col="5"></td>
-                                <td id = "2-6" class="gridbox" data-row="2" data-col="6"></td>
-                                <td id = "2-7" class="gridbox" data-row="2" data-col="7"></td>
-                                <td id = "2-8" class="gridbox" data-row="2" data-col="8"></td>
-                            </tr>
+                            <div class="divRow" id="gridRow2">
+                                <div class="divCell"  id = "2-1" class="gridbox" data-row="2" data-col="1"> </div>
+                                <div class="divCell" id = "2-2" class="gridbox" data-row="2" data-col="2"> </div>
+                                <div class="divCell" id = "2-3" class="gridbox" data-row="2" data-col="3"> </div>
+                                <div class="divCell" id = "2-4" class="gridbox" data-row="2" data-col="4"> </div>
+                                <div class="divCell" id = "2-5" class="gridbox" data-row="2" data-col="5"> </div>
+                                <div class="divCell" id = "2-6" class="gridbox" data-row="2" data-col="6"> </div>
+                                <div class="divCell" id = "2-7" class="gridbox" data-row="2" data-col="7"> </div>
+                                <div class="divCell" id = "2-8" class="gridbox" data-row="2" data-col="8"> </div>
+                            </div>
                             
-                            <tr id="gridRow3">
-                                <td id = "3-1" class="gridbox" data-row="3" data-col="1"></td>
-                                <td id = "3-2" class="gridbox" data-row="3" data-col="2"></td>
-                                <td id = "3-3" class="gridbox" data-row="3" data-col="3"></td>
-                                <td id = "3-4" class="gridbox" data-row="3" data-col="4"></td>
-                                <td id = "3-5" class="gridbox" data-row="3" data-col="5"></td>
-                                <td id = "3-6" class="gridbox" data-row="3" data-col="6"></td>
-                                <td id = "3-7" class="gridbox" data-row="3" data-col="7"></td>
-                                <td id = "3-8" class="gridbox" data-row="3" data-col="8"></td>
+                            <div class="divRow" id="gridRow3">
+                                <div class="divCell" id = "3-1" class="gridbox" data-row="3" data-col="1"> </div>
+                                <div class="divCell" id = "3-2" class="gridbox" data-row="3" data-col="2"> </div>
+                                <div class="divCell" id = "3-3" class="gridbox" data-row="3" data-col="3"> </div>
+                                <div class="divCell" id = "3-4" class="gridbox" data-row="3" data-col="4"> </div>
+                                <div class="divCell" id = "3-5" class="gridbox" data-row="3" data-col="5"> </div>
+                                <div class="divCell" id = "3-6" class="gridbox" data-row="3" data-col="6"> </div>
+                                <div class="divCell" id = "3-7" class="gridbox" data-row="3" data-col="7"> </div>
+                                <div class="divCell" id = "3-8" class="gridbox" data-row="3" data-col="8"> </div>
 
-                            </tr>
+                            </div>
                             
-                            <tr id="gridRow4">
-                                <td id = "4-1" class="gridbox" data-row="4" data-col="1"></td>
-                                <td id = "4-2" class="gridbox" data-row="4" data-col="2"></td>
-                                <td id = "4-3" class="gridbox" data-row="4" data-col="3"></td>
-                                <td id = "4-4" class="gridbox" data-row="4" data-col="4"></td>
-                                <td id = "4-5" class="gridbox" data-row="4" data-col="5"></td>
-                                <td id = "4-6" class="gridbox" data-row="4" data-col="6"></td>
-                                <td id = "4-7" class="gridbox" data-row="4" data-col="7"></td>
-                                <td id = "4-8" class="gridbox" data-row="4" data-col="8"></td>
-                            </tr>
+                            <div class="divRow" id="gridRow4">
+                                <div class="divCell" id = "4-1" class="gridbox" data-row="4" data-col="1"> </div>
+                                <div class="divCell" id = "4-2" class="gridbox" data-row="4" data-col="2"> </div>
+                                <div class="divCell" id = "4-3" class="gridbox" data-row="4" data-col="3"> </div>
+                                <div class="divCell" id = "4-4" class="gridbox" data-row="4" data-col="4"> </div>
+                                <div class="divCell" id = "4-5" class="gridbox" data-row="4" data-col="5"> </div>
+                                <div class="divCell" id = "4-6" class="gridbox" data-row="4" data-col="6"> </div>
+                                <div class="divCell" id = "4-7" class="gridbox" data-row="4" data-col="7"> </div>
+                                <div class="divCell" id = "4-8" class="gridbox" data-row="4" data-col="8"> </div>
+                            </div>
 
-                            <tr id="gridRow5">
-                                <td id = "5-1" class="gridbox" data-row="5" data-col="1"></td>
-                                <td id = "5-2" class="gridbox" data-row="5" data-col="2"></td>
-                                <td id = "5-3" class="gridbox" data-row="5" data-col="3"></td>
-                                <td id = "5-4" class="gridbox" data-row="5" data-col="4"></td>
-                                <td id = "5-5" class="gridbox" data-row="5" data-col="5"></td>
-                                <td id = "5-6" class="gridbox" data-row="5" data-col="6"></td>
-                                <td id = "5-7" class="gridbox" data-row="5" data-col="7"></td>
-                                <td id = "5-8" class="gridbox" data-row="5" data-col="8"></td>
-                            </tr>
-                            <tr id="gridRow6">
-                                <td id = "6-1" class="gridbox" data-row="6" data-col="1"></td>
-                                <td id = "6-2" class="gridbox" data-row="6" data-col="2"></td>
-                                <td id = "6-3" class="gridbox" data-row="6" data-col="3"></td>
-                                <td id = "6-4" class="gridbox" data-row="6" data-col="4"></td>
-                                <td id = "6-5" class="gridbox" data-row="6" data-col="5"></td>
-                                <td id = "6-6" class="gridbox" data-row="6" data-col="6"></td>
-                                <td id = "6-7" class="gridbox" data-row="6" data-col="7"></td>
-                                <td id = "6-8" class="gridbox" data-row="6" data-col="8"></td>
-                            </tr>
+                            <div class="divRow" id="gridRow5">
+                                <div class="divCell" id = "5-1" class="gridbox" data-row="5" data-col="1"> </div>
+                                <div class="divCell" id = "5-2" class="gridbox" data-row="5" data-col="2"> </div>
+                                <div class="divCell" id = "5-3" class="gridbox" data-row="5" data-col="3"> </div>
+                                <div class="divCell" id = "5-4" class="gridbox" data-row="5" data-col="4"> </div>
+                                <div class="divCell" id = "5-5" class="gridbox" data-row="5" data-col="5"> </div>
+                                <div class="divCell" id = "5-6" class="gridbox" data-row="5" data-col="6"> </div>
+                                <div class="divCell" id = "5-7" class="gridbox" data-row="5" data-col="7"> </div>
+                                <div class="divCell" id = "5-8" class="gridbox" data-row="5" data-col="8"> </div>
+                            </div>
+                            <div class="divRow" id="gridRow6">
+                                <div class="divCell" id = "6-1" class="gridbox" data-row="6" data-col="1"> </div>
+                                <div class="divCell" id = "6-2" class="gridbox" data-row="6" data-col="2"> </div>
+                                <div class="divCell" id = "6-3" class="gridbox" data-row="6" data-col="3"> </div>
+                                <div class="divCell" id = "6-4" class="gridbox" data-row="6" data-col="4"> </div>
+                                <div class="divCell" id = "6-5" class="gridbox" data-row="6" data-col="5"> </div>
+                                <div class="divCell" id = "6-6" class="gridbox" data-row="6" data-col="6"> </div>
+                                <div class="divCell" id = "6-7" class="gridbox" data-row="6" data-col="7"> </div>
+                                <div class="divCell" id = "6-8" class="gridbox" data-row="6" data-col="8"> </div>
+                            </div>
 
-                            <tr id="gridRow7">
-                                <td id = "7-1" class="gridbox" data-row="7" data-col="1"></td>
-                                <td id = "7-2" class="gridbox" data-row="7" data-col="2"></td>
-                                <td id = "7-3" class="gridbox" data-row="7" data-col="3"></td>
-                                <td id = "7-4" class="gridbox" data-row="7" data-col="4"></td>
-                                <td id = "7-5" class="gridbox" data-row="7" data-col="5"></td>
-                                <td id = "7-6" class="gridbox" data-row="7" data-col="6"></td>
-                                <td id = "7-7" class="gridbox" data-row="7" data-col="7"></td>
-                                <td id = "7-8" class="gridbox" data-row="7" data-col="8"></td>
-                            </tr>
+                            <div class="divRow" id="gridRow7">
+                                <div class="divCell" id = "7-1" class="gridbox" data-row="7" data-col="1"> </div>
+                                <div class="divCell" id = "7-2" class="gridbox" data-row="7" data-col="2"> </div>
+                                <div class="divCell" id = "7-3" class="gridbox" data-row="7" data-col="3"> </div>
+                                <div class="divCell" id = "7-4" class="gridbox" data-row="7" data-col="4"> </div>
+                                <div class="divCell" id = "7-5" class="gridbox" data-row="7" data-col="5"> </div>
+                                <div class="divCell" id = "7-6" class="gridbox" data-row="7" data-col="6"> </div>
+                                <div class="divCell" id = "7-7" class="gridbox" data-row="7" data-col="7"> </div>
+                                <div class="divCell" id = "7-8" class="gridbox" data-row="7" data-col="8"> </div>
+                            </div>
 
-                            <tr id="gridRow8">
-                                <td id = "8-1" class="gridbox" data-row="8" data-col="1"></td>
-                                <td id = "8-2" class="gridbox" data-row="8" data-col="2"></td>
-                                <td id = "8-3" class="gridbox" data-row="8" data-col="3"></td>
-                                <td id = "8-4" class="gridbox" data-row="8" data-col="4"></td>
-                                <td id = "8-5" class="gridbox" data-row="8" data-col="5"></td>
-                                <td id = "8-6" class="gridbox" data-row="8" data-col="6"></td>
-                                <td id = "8-7" class="gridbox" data-row="8" data-col="7"></td>
-                                <td id = "8-8" class="gridbox" data-row="8" data-col="8"></td>
-                            </tr>
-
+                            <div class="divRow" id="gridRow8">
+                                <div class="divCell" id = "8-1" class="gridbox" data-row="8" data-col="1"> </div>
+                                <div class="divCell" id = "8-2" class="gridbox" data-row="8" data-col="2"> </div>
+                                <div class="divCell" id = "8-3" class="gridbox" data-row="8" data-col="3"> </div>
+                                <div class="divCell" id = "8-4" class="gridbox" data-row="8" data-col="4"> </div>
+                                <div class="divCell" id = "8-5" class="gridbox" data-row="8" data-col="5"> </div>
+                                <div class="divCell" id = "8-6" class="gridbox" data-row="8" data-col="6"> </div>
+                                <div class="divCell" id = "8-7" class="gridbox" data-row="8" data-col="7"> </div>
+                                <div class="divCell" id = "8-8" class="gridbox" data-row="8" data-col="8"> </div>
+                            </div>
 
                         
-                        </table>
+                        </div>
                         <button id="clear-table">Clear</button>
                     </div>
 
@@ -433,29 +428,83 @@
                     
                     <!-- Header -->
                     <div id="map-draw-modal-header" class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title" id="map-draw-modal-label">Draw</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">Draw<span aria-hidden="true">&times;</span></button>
+                        
                     </div>    
 
 
                     <!-- body -->
                     <div class="modal-body" id="map-draw-modal-body">
-                        <img class="col-lg-3 map-modal-img" data-theClass="clear-border" src="assets/BorderSides/borderclear.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="bottom-border" src="assets/BorderSides/borderbottom.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-border" src="assets/BorderSides/bordertop.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="left-border" src="assets/BorderSides/borderleft.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="right-border" src="assets/BorderSides/borderright.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="bottom-left-border" src="assets/BorderSides/borderleftbottom.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="left-right-border" src="assets/BorderSides/borderleftright.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-left-border" src="assets/BorderSides/borderlefttop.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-right-left-border" src="assets/BorderSides/borderlefttopright.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="bottom-right-border" src="assets/BorderSides/borderrightbottom.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-border" src="assets/BorderSides/bordertopbottom.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-left-border" src="assets/BorderSides/bordertopbottomleft.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-right-border" src="assets/BorderSides/bordertopright.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="bottom-right-left-border" src="assets/BorderSides/rightbottomleft.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-right-border" src="assets/BorderSides/toprightbottom.png">
-                        <img class="col-lg-3 map-modal-img" data-theClass="solidBox" src="assets/BorderSides/solid.png">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#walls" aria-controls="walls" role="tab" data-toggle="tab">Walls</a></li>
+                            <li role="presentation"><a href="#furniture" aria-controls="furniture" role="tab" data-toggle="tab">Furniture</a></li>
+                            <li role="presentation"><a href="#NPCS" aria-controls="npcs" role="tab" data-toggle="tab">NPC's</a></li>
+                        </ul>
+
+
+                        <!-- Draw Walls Tab -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="walls">
+                                <img class="col-lg-3 map-modal-img" data-theClass="clear-border" src="assets/BorderSides/borderclear.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="solidBox" src="assets/BorderSides/solid.png">
+
+                                <img class="col-lg-3 map-modal-img" data-theClass="bottom-border" src="assets/BorderSides/borderbottom.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="top-border" src="assets/BorderSides/bordertop.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="left-border" src="assets/BorderSides/borderleft.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="right-border" src="assets/BorderSides/borderright.png">
+
+                                <img class="col-lg-3 map-modal-img" data-theClass="bottom-left-border" src="assets/BorderSides/borderleftbottom.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="bottom-right-border" src="assets/BorderSides/borderrightbottom.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="top-left-border" src="assets/BorderSides/borderlefttop.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="top-right-border" src="assets/BorderSides/bordertopright.png">
+
+                                <img class="col-lg-3 map-modal-img" data-theClass="top-right-left-border" src="assets/BorderSides/borderlefttopright.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-left-border" src="assets/BorderSides/bordertopbottomleft.png">
+
+                                
+                                <img class="col-lg-3 map-modal-img" data-theClass="bottom-right-left-border" src="assets/BorderSides/rightbottomleft.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-right-border" src="assets/BorderSides/toprightbottom.png">
+                               
+                                <img class="col-lg-3 map-modal-img" data-theClass="left-right-border" src="assets/BorderSides/borderleftright.png">
+                                <img class="col-lg-3 map-modal-img" data-theClass="top-bottom-border" src="assets/BorderSides/bordertopbottom.png">
+                            </div>
+
+                            <!-- furniture -->
+                            <div role="tabpanel" class="tab-pane" id="furniture">
+                                <img class="col-lg-3 map-modal-furniture" data-theFurniture="clear-furnature" src="borderclear.png">
+                                <img class="col-lg-3 map-modal-furniture" data-theFurniture="door-top" src="assets/furniture/doors/doortop.png">
+                                <img class="col-lg-3 map-modal-furniture" data-theFurniture="door-left" src="assets/furniture/doors/doorleft.png">
+                                <img class="col-lg-3 map-modal-furniture" data-theFurniture="door-right" src="assets/furniture/doors/doorright.png">
+                                <img class="col-lg-3 map-modal-furniture" data-theFurniture="door-bottom" src="assets/furniture/doors/doorbottom.png">
+
+                                <img class="col-lg-3 map-modal-furniture" data-theFurniture="chest-1" src="assets/furniture/chestone.png">
+                                <img class="col-lg-3 map-modal-furniture" data-theFurniture="chest-2" src="assets/furniture/chesttwo.png">
+
+
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane" id="NPCS">
+                                <img class="col-lg-3 map-modal-char" data-theChar="clear-npc" src="borderclear.png">
+
+                                <img class="col-lg-3 map-modal-char" data-theChar="monster1" src="assets/npcs/enemies/monster1.png">
+
+                                <img class="col-lg-3 map-modal-char" data-theChar="dwarf1" src="assets/npcs/friendly/dwarf1.png">
+                                <img class="col-lg-3 map-modal-char" data-theChar="dwarf2" src="assets/npcs/friendly/dwarf2.png">
+
+                                <img class="col-lg-3 map-modal-char" data-theChar="female1" src="assets/npcs/friendly/female1.png">
+                                <img class="col-lg-3 map-modal-char" data-theChar="male1" src="assets/npcs/friendly/man1.png">
+
+                                <img class="col-lg-3 map-modal-char" data-theChar="solider" src="assets/npcs/friendly/solider.png">
+
+                                <img class="col-lg-3 map-modal-char" data-theChar="bluecircle" src="assets/npcs/generic/bluecircle.png">
+                                <img class="col-lg-3 map-modal-char" data-theChar="purplecircle" src="assets/npcs/generic/purplecircle.png">
+                                <img class="col-lg-3 map-modal-char" data-theChar="redcircle" src="assets/npcs/generic/redcircle.png">
+                                <img class="col-lg-3 map-modal-char" data-theChar="yellowcircle" src="assets/npcs/generic/yellowcircle.png">
+
+
+
+                            </div>
+                        </div>
                     </div>  
 
 
@@ -470,6 +519,84 @@
 
 
 
+        <!-- This modal lets you change the settings on a channel, or delete it -->
+        <div class="modal fade" id="channel-settings-modal" tabindex="-1" role="dialog" aria-labelledby="channelSettingModal">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div id="channel-setting-modal-header" class="modal-header text-center">
+                        <h4 class="modal-title" id="channel-setting-modal-label">Channel Settings:</h4>
+                    </div>    
+
+                    <!-- This will present you with a few options for how you want to login -->
+                    <div class="modal-body text-center" id="channel-setting-modal-body">
+                        <!-- Input line for change name -->
+
+
+                        <!-- input line for change description -->
+
+
+                        <!-- Delete button -->
+
+                    </div>
+
+                    <div class="modal-footer" id="channel-setting-modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="user-settings-modal" tabindex="-1" role="dialog" aria-labelledby="userSettingModal">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div id="user-settings-modal-header" class="modal-header text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="user-settings-modal-label">User Settings</h4>
+                    </div>
+
+                    <div class="modal-body text-center" id="channel-setting-modal-body">
+                        <ul class="nav nav-tabs text-center" role="tablist">
+                            <li role="presentation" class="active"><a href="#user" aria-controls="user" role="tab" data-toggle="tab">User</a></li>
+                            <li role="presentation"><a href="#colour-scheme" aria-controls="colour-scheme" role="tab" data-toggle="tab">Colour Scheme</a></li>
+
+                        </ul>
+
+
+                        <div class="tab-content">
+                            <!-- Users settings for when they exist -->
+                            <div role="tabpanel" class="tab-pane active" id="user"> 
+                                <p><br>This is where you can see your information: the like fact that you are a great person!</p>
+                            </div>
+
+
+                            <!-- Changing the colour scheme of the site -->
+                            <div role="tabpanel" class="tab-pane" id="colour-scheme">
+
+                                <img class="img logoimg col-lg-3" src="assets/gamelogos/deafultlogo.png">
+                                <img class="img logoimg col-lg-3" src="assets/gamelogos/boringlogo.png">
+                                <img class="img logoimg col-lg-3" src="assets/gamelogos/d&dlogo.png">
+                                <img class="img logoimg col-lg-3" src="assets/gamelogos/dhlogo.png">
+                                <img class="img logoimg col-lg-3" src="assets/gamelogos/gurpslogo.png">
+                                <img class="img logoimg col-lg-3" src="assets/gamelogos/numeneralogo.png">
+                                <img class="img logoimg col-lg-3" src="assets/gamelogos/pathfinderlogo.png">
+                                <img class="img logoimg col-lg-3" src="assets/gamelogos/shadowrunlogo.png">
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="modal-footer" id="user-setting-modal-footer">
+                        <h5>All Images &copy; their respective owners</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- ***************************************************** End Modal Windows ****************************************************************** -->

@@ -151,15 +151,13 @@ a{
 
 /* Header things*/
 
-
-
 #header{
 	font-family: 'Metamorphous', cursive;
 	position: absolute;
 	top:0;
 	left:0;
 	right:0;
-	/*Id like to make this bigger, but adding hight isn't helpin*/
+	height:100%;
 	background-color: #4c2c1f;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
@@ -233,7 +231,8 @@ a{
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 
-
+/*	overflow-x: scroll;
+	overflow-y: scroll;*/
 	background-color: #fffdf8;
 }	
 
@@ -294,7 +293,7 @@ a{
 
 /*Grid sections*/
 
-#mapGrid{
+/*#mapGrid{
 	position: absolute;
 	top:0;
 	bottom:0;
@@ -303,7 +302,7 @@ a{
 	width: 75%;
 	height:100%;
 }
-
+*/
 
 #clear-table{
 	position: absolute;
@@ -314,24 +313,86 @@ a{
 }
 
 
+
 /*Table Stylings for grid*/
-td{
-	height: 12.5%;
-	width:  12.5%;
 
+
+#divTable{
+
+	display: block;	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	width:75%;
+	height:100%;
+	left:110px;
+	right:110px;
+
+	clear:both;
+
+
+
+
+}
+
+.divRow{
+
+    width:100%;
+    display: block;
+    height:12.5%;
+    clear:both;
+
+}
+
+.divCell{
+	display: inline-block;
+	height:100%;
+	width: 12.5%;
+	float:left;
 	border-style: solid;
-	border-color: 000000;
 	border-width: 1px;
+	border-color: #000;
 
-	background-color: rgba(255,255,255,0)
 }
 
 
 
 /*Types of grid options*/
-.map-modal-image{
+.map-modal-img,
+.map-modal-furniture,
+.map-modal-char{
 	padding:15px 15px 15px 15px;
 }
+
+
+
+.map-furniture-img{
+	z-index: 10;
+	position: absolute;
+
+
+}
+
+.map-character-img{
+	z-index: 20;
+	position: absolute;
+
+	max-height: 60px;
+	max-width: 60px;
+
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+
+}
+
+
+
 
 /*basic 5*/
 .top-border{
@@ -611,6 +672,7 @@ td{
 	color:#e3e292;
 	text-shadow: 1px 1px #bc8f65;
 	font-size: 24px;
+	padding-bottom: 20px;
 
 }
 
@@ -643,6 +705,27 @@ td{
 #channel-wrapper{
 	padding-top: 15px;
 }
+
+.channel-settings{
+	color:black;
+	padding-right: 7px;
+}
+
+.channel-settings:hover{
+	color: white;
+}
+
+#colour-scheme{
+	overflow-y: scroll;
+	overflow-x: scroll;
+}
+
+.logoimg{
+	max-width: 100px;
+	max-height: 80px;
+}
+
+
 
 /*section with buttons on sidebar*/
 
@@ -731,7 +814,7 @@ td{
 
 #login-modal-body{
 	background-color: #e3e292;
-	
+
 }
 
 #login-modal-footer{
@@ -791,12 +874,13 @@ td{
 /*map-draw modal*/
 
 .map-modal-img{
-	padding: 5px 5px 5px 5px;
-	margin: 10px 10px 10px 10px;
+
 
 }
 
-.map-modal-img:hover{
+.map-modal-img:hover,
+.map-modal-furniture:hover,
+.map-modal-char:hover{
 	border-style: solid;
 	border-color: #000000;
 	border-width: 1px;
@@ -819,11 +903,12 @@ td{
 #map-draw-modal-body{
 	max-height: 230px;
 	background-color: #e3e292;
+	border-bottom-color: #4c2c1f;
+	border-bottom-style: solid;
 }
 
 #map-draw-modal-footer{
-	background-color: #e3e292;
-	border-top-color: #4c2c1f;
+	border-style: none;
 }	
 
 
@@ -866,12 +951,23 @@ td{
 @media(max-width:768px){
 
 	#chat-box{
-
+		z-index: 100;
 		bottom: 0;
 		top: 70px;
 		height:auto;
 
 	}	
+
+
+	#channel-name{
+		font-size: 12px;
+		line-height: 10px;
+	}
+
+	#channel-desc{
+		font-size: 10px;
+		line-height: 10px;
+	}
 
 
 
