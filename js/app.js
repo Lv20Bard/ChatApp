@@ -12,6 +12,7 @@ var pos = {
 	y: 0
 }
 
+
 $(document).ready(function() {
 
 	// Initialize Firebase
@@ -41,8 +42,11 @@ $(document).ready(function() {
 	var profileRef = database.ref('/profiles');
 	var messageRef = database.ref('/messages'); 
 	var gridRef = database.ref('/grids');
+	var userPositionRef = database.ref('/userpositions');
 	
 
+
+	
 	// Event Listerners
 	$('#facebook-signin').click(function(){
 		provider = new firebase.auth.FacebookAuthProvider();
@@ -110,6 +114,100 @@ $(document).ready(function() {
     	}
     });
 
+
+
+
+    //Dice rolling
+    var roll;
+    var message;
+
+
+    //1d2
+    $('#d2-btn').click(function(e){
+    	roll =  Math.floor((Math.random() * 2) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d2 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+    });
+   
+   
+    //1d3
+    $('#d3-btn').click(function(e){
+    	roll = Math.floor((Math.random() * 3) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d3 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+    });
+       
+    //1d4
+	$('#d4-btn').click(function(e){
+		roll = Math.floor((Math.random() * 4) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d4 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+    });
+    	
+   
+    //1d6
+    $('#d6-btn').click(function(e){
+    	roll = Math.floor((Math.random() * 6) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d6 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+    });
+    
+   
+    //1d8
+    $('#d8-btn').click(function(e){
+    	roll = Math.floor((Math.random() * 8) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d8 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+    });
+     	
+   
+    //1d10
+    $('#d10-btn').click(function(e){
+    	roll = Math.floor((Math.random() * 10) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d10 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+    });
+
+   
+    //1d12
+    $('#d12-btn').click(function(e){
+    	roll = 	Math.floor((Math.random() * 12) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d12 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+    });
+   
+    //1d20
+   	$('#d20-btn').click(function(e){
+   		roll = 	Math.floor((Math.random() * 20) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d20 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+    });
+   
+    //1d100
+    $('#d100-btn').click(function(e){
+    	roll = Math.floor((Math.random() * 100) + 1);
+    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d100 and got `+roll+`</i></p>`;
+    	messageRef.child(currChannel.id).push(message);
+		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
+		refreshMessages(messageRef, currChannel.id);
+
+    });
 
 
 
@@ -189,9 +287,36 @@ $(document).ready(function() {
 			for(var i = 0 ; i< keys.length; i++){
 				$('#channel-list').append(`
 					<p class"channel">
-                        <a class="channel-link" id="channel-${keys[i]}" data-id="${keys[i]}">${snapshotData[keys[i]].name}</a>
-                 	</p>
+						 <a class="channel-link" id="channel-${keys[i]}" data-id="${keys[i]}">${snapshotData[keys[i]].name}</a>
 				`);
+
+
+                if(loggedUser.id == snapshotData[keys[i]].owner){
+                	$("#channel-list").append(`
+                		 <i class="glyphicon glyphicon-cog pull-right channel-settings" id="channel-setting-${keys[i]}" data-id="${keys[i]}" class="gyphicon glyphicon-cog"></i>
+                	`)
+
+                }
+
+                $('#channel-list').append(`    
+                 	</p>
+            		<div id="channel-${keys[i]}-userlist">
+            			
+            		</div>
+				`);
+
+				// //this doesn't work becase "channel-"+keys[i] isn't a channel with an owner
+				// //CURRENT WORKING AREA COMMENTING SO I CAN FIND THIS LATER !!!!!!!!!!!!!!!!
+				// if(("channel-"+keys[i]).data('id') == loggedUser.id){
+				// 	$("channel-setting-"+keys[i]).show();
+
+				// }
+
+				// else{
+				// 	$("channel-setting-"+keys[i]).hide();
+				// }
+
+
 				if(i == 0){
 					currChannel = snapshotData[keys[i]];
 					currChannel.id = keys[i];
@@ -211,6 +336,9 @@ $(document).ready(function() {
 		$('.channel-link').click(function(e){
 			var channelID = $(this).data('id');
 			var theChannel = $(this);
+
+			addToChannel(loggedUser, channelID);
+
 
 			channelRef.child(channelID).once("value", function(snapshot){
 				//Unbold each channel
@@ -245,10 +373,8 @@ $(document).ready(function() {
 
 
 
-
-
 		//changing the grid
-		$('.gridbox').click(function(e){
+		$('.divCell').click(function(e){
 			isDM();
 			if(loggedUser.currDM){
 				pos.x = $(this).data('col');
@@ -256,117 +382,72 @@ $(document).ready(function() {
 				$('#map-draw-modal').modal('show');
 
 			}
+
+			else{
+				pos.x = $(this).data('col');
+				pos.y = $(this).data('row');
+				var settingChar = ""+loggedUser.photo;
+				gridRef.child(currChannel.id).child(pos.x).child(pos.y).update({character:settingChar});
+
+				userPositionRef.child(currChannel.id).child(loggedUser.id).once('value', function(snapshot){
+
+					var snapshotData = snapshot.val();
+
+
+					if(snapshotData != null){
+						gridRef.child(currChannel.id).child(snapshotData.xposition).child(snapshotData.yposition).update({character:"borderclear.png"});
+					}
+					
+
+
+					userPositionRef.child(currChannel.id).child(loggedUser.id).update({xposition:pos.x});
+					userPositionRef.child(currChannel.id).child(loggedUser.id).update({yposition:pos.y});
+
+
+				});
+
+			}	
+
 		});
 
-
+		//for borders
 		$('.map-modal-img').click(function(e){
 			var settingClass = $(this).data('theclass');
-			gridRef.child(currChannel.id).child(pos.x).child(pos.y).remove();
-			gridRef.child(currChannel.id).child(pos.x).child(pos.y).push({theClass:settingClass});
+			// gridRef.child(currChannel.id).child(pos.x).child(pos.y).remove();
+			gridRef.child(currChannel.id).child(pos.x).child(pos.y).update({border:settingClass});
 			$('#map-draw-modal').modal('hide');
 		});
 
+		//for furniture
+		$('.map-modal-furniture').click(function(e){
+			var settingFurniture = $(this).attr('src');
+			// gridRef.child(currChannel.id).child(pos.x).child(pos.y).remove();
+			gridRef.child(currChannel.id).child(pos.x).child(pos.y).update({furniture:settingFurniture});
+			$('#map-draw-modal').modal('hide');
+		});
+
+		//for characters
+		$('.map-modal-char').click(function(e){
+			var settingChar = $(this).attr('src');
+			// gridRef.child(currChannel.id).child(pos.x).child(pos.y).remove();
+			gridRef.child(currChannel.id).child(pos.x).child(pos.y).update({character:settingChar});
+			$('#map-draw-modal').modal('hide');
 
 
 
-	    //Dice rolling
-	    var roll;
-	    var message;
+		});
 
 
-	    //1d2
-	    $('#d2-btn').click(function(e){
-	    	roll =  Math.floor((Math.random() * 2) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d2 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-	    });
-	   
-	   
-	    //1d3
-	    $('#d3-btn').click(function(e){
-	    	roll = Math.floor((Math.random() * 3) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d3 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-	    });
-	       
-	    //1d4
-    	$('#d4-btn').click(function(e){
-    		roll = Math.floor((Math.random() * 4) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d4 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-	    });
-	    	
-	   
-	    //1d6
-	    $('#d6-btn').click(function(e){
-	    	roll = Math.floor((Math.random() * 6) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d6 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-	    });
-	    
-	   
-	    //1d8
-	    $('#d8-btn').click(function(e){
-	    	roll = Math.floor((Math.random() * 8) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d8 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-	    });
-	     	
-	   
-	    //1d10
-	    $('#d10-btn').click(function(e){
-	    	roll = Math.floor((Math.random() * 10) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d10 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-	    });
-
-	   
-	    //1d12
-	    $('#d12-btn').click(function(e){
-	    	roll = 	Math.floor((Math.random() * 12) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d12 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-	    });
-	   
-	    //1d20
-	   	$('#d20-btn').click(function(e){
-	   		roll = 	Math.floor((Math.random() * 20) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d20 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-	    });
-	   
-	    //1d100
-	    $('#d100-btn').click(function(e){
-	    	roll = Math.floor((Math.random() * 100) + 1);
-	    	message = `<p class="message"><i>`+loggedUser.name+` rolled 1d100 and got `+roll+`</i></p>`;
-	    	messageRef.child(currChannel.id).push(message);
-    		$('#chat-box').animate({scrollTop: $('#chat-box')[0].scrollHeight});
-			refreshMessages(messageRef, currChannel.id);
-
-	    });
 	    	
 	    isDM();
 
 
 	    //clear the table button
 	    $('#clear-table').click(function(e){
-	    	$('td').attr('class','gridbox');
+	    	$('divCell').attr('class','divCell gridbox');
+	    	// $('.furniture-img').attr();
+	    	// $('.char-img').attr();
+	    	$('.divCell').html(``);
 	    	gridRef.child(currChannel.id).remove();
 	    	refreshGrid(gridRef,currChannel.id);
 	    });
@@ -382,9 +463,10 @@ $(document).ready(function() {
 
 //Functions
 
+//LOGIN FUNCTION
 function login(provider, profileRef){
 		
-		
+
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 				
 
@@ -516,37 +598,63 @@ function refreshMessages (messageRef,channelID){
 }
 
 
-// //refresh the grid
+//refresh the grid
 function refreshGrid(gridRef, channelID){
 	//empty grid doesn't affect anything, so we don't have a case for it
 	gridRef.child(channelID).on('value',function(snapshot){
 		var grid = snapshot.val();
-		$('td').attr('class', 'gridbox');
+		$('.divCell').attr('class', 'divCell gridbox');
+		$('.map-furnature-img').attr('src', "borderclear.png");
+		$('.map-character-img').attr('src', "borderclear.png");
 
 		if(grid!=null){
 			var rows = Object.keys(grid);
-
 			for(var i = 0; i<rows.length; i++){
 				var cols = Object.keys(grid[rows[i]]);
 				for(var j = 0; j<cols.length; j++){
 					
-					var currClass = grid[rows[i]][cols[j]];
-					classKey = Object.keys(currClass)[0];
-					currClass[classKey].theClass;
+					var currGridObject = grid[rows[i]][cols[j]];
+					var currBorder = currGridObject.border;
+					var currFurniture = currGridObject.furniture;
+					var currCharacter = currGridObject.character;
 
+					//define our current square on the grid
 					var currSquare = ("#"+cols[j]+"-"+rows[i]+"");
 
-					$(currSquare).attr('class', 'gridbox');
+					//Reset Border of our square
+					$(currSquare).attr('class', 'divCell gridbox');
+					$(currSquare).html(`
+						<img class="map-furniture-img" id="furniture-${cols[j]}-${rows[i]}">
+						<img class="map-character-img img-circle" id="character-${cols[j]}-${rows[i]}">
+					`);
+					
+					//Set/Reset Furniture
+					
+					if(currFurniture != null  || currFurniture != undefined){
+						$("#furniture-"+cols[j]+"-"+rows[i]).attr('src', currFurniture);
+					}	
+					else{
+						$("#furniture-"+cols[j]+"-"+rows[i]).attr('src', "borderclear.png");
+					}
 
-					$(currSquare).addClass(currClass[classKey].theClass);
+					//Character
+					if(currCharacter != null  || currCharacter != undefined){
+						$("#character-"+cols[j]+"-"+rows[i]).attr('src', currCharacter);
+					}
+					else{
+						$("#character-"+cols[j]+"-"+rows[i]).attr('src', "borderclear.png");
+					}
+
+					//Set border
+					$(currSquare).addClass(currBorder);
+
+
+
+
 				}
 			}
 		}
-
-
 	});
-
-
 }
 
 
@@ -554,7 +662,10 @@ function refreshGrid(gridRef, channelID){
 //this function will get called each time a channel is made or switches channels
 //If the user is the owner of the channel, it will put a little gold chest-piece next to their name
 function isDM (){
-	if(loggedUser.id == currChannel.owner){
+
+	//Show the Gold chess piece
+	var isDM = (loggedUser.id == currChannel.owner);
+	if(isDM){
 		$('#is-dm').show();
 		loggedUser.currDM = true;
 	}
@@ -563,6 +674,7 @@ function isDM (){
 		loggedUser.currDM = false;
 	}
 
+	//Show clear table button
 	if(loggedUser.currDM==true){
 		$('#clear-table').show();
 	}
@@ -570,8 +682,25 @@ function isDM (){
 		$('#clear-table').hide();	
 	}
 
+	// //Show the settings button
+	// if(loggedUser.currDM){
+
+	// }
+	return isDM;
+
 }
 
+
+
+function addToChannel(user, channelID){
+	//if currentally in another channel, remove from that channel
+	// $('nametag_'+user.id).remove();
+	
+	$('channel-'+channelID+'-userlist').append(`
+		<p class="nametag_${user.id} nameTagStyle">${user.name}</p>
+	`);
+
+}
 
 
 
