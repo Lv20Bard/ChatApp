@@ -370,7 +370,9 @@ a{
 .map-furniture-img{
 	z-index: 10;
 	position: absolute;
-
+	height: 60px;
+	width:60px;
+	margin-left: 10px;
 
 }
 
@@ -872,6 +874,9 @@ a{
 
 
 /*map-draw modal*/
+.map-modal-tab{
+	border-color:#4c2c1f;
+}
 
 .map-modal-img{
 
@@ -888,7 +893,8 @@ a{
 
 
 #map-draw-modal{
-
+	clear:both;
+	height:100%;
 }
 
 #map-draw-modal-content{
@@ -901,7 +907,7 @@ a{
 }
 
 #map-draw-modal-body{
-	max-height: 230px;
+	height: 100%;
 	background-color: #e3e292;
 	border-bottom-color: #4c2c1f;
 	border-bottom-style: solid;
