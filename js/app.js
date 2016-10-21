@@ -46,7 +46,6 @@ $(document).ready(function() {
 	
 
 
-	
 	// Event Listerners
 	$('#facebook-signin').click(function(){
 		provider = new firebase.auth.FacebookAuthProvider();
@@ -269,6 +268,12 @@ $(document).ready(function() {
 
     //Populate channel list
 	channelRef.on("value", function(snapshot){
+
+
+
+		console.log(loggedUser);
+
+
 		var snapshotData = snapshot.val();
 
 		if(snapshotData == null || snapshotData == undefined){
@@ -279,6 +284,7 @@ $(document).ready(function() {
 			`);
 		}
 		else{
+			console.log(loggedUser);
 			var keys = Object.keys(snapshotData);
 
 			//populate the list but clear it first
@@ -290,10 +296,10 @@ $(document).ready(function() {
 						 <a class="channel-link" id="channel-${keys[i]}" data-id="${keys[i]}">${snapshotData[keys[i]].name}</a>
 				`);
 
-
+				console.log(loggedUser);
                 if(loggedUser.id == snapshotData[keys[i]].owner){
                 	$("#channel-list").append(`
-                		 <i class="glyphicon glyphicon-cog pull-right channel-settings" id="channel-setting-${keys[i]}" data-id="${keys[i]}" class="gyphicon glyphicon-cog"></i>
+                		 <i class="glyphicon glyphicon-cog pull-right channel-settings" id="channel-setting-${keys[i]}" data-id="${keys[i]}"></i>
                 	`)
 
                 }
@@ -330,7 +336,7 @@ $(document).ready(function() {
 			}
 		}
 
-
+	
 
 		//switching channels
 		$('.channel-link').click(function(e){
@@ -604,7 +610,7 @@ function refreshGrid(gridRef, channelID){
 	gridRef.child(channelID).on('value',function(snapshot){
 		var grid = snapshot.val();
 		$('.divCell').attr('class', 'divCell gridbox');
-		$('.map-furnature-img').attr('src', "borderclear.png");
+		$('.map-furniture-img').attr('src', "borderclear.png");
 		$('.map-character-img').attr('src', "borderclear.png");
 
 		if(grid!=null){
