@@ -13,6 +13,11 @@ var pos = {
 }
 
 
+
+var channelListner;
+var messageListner;
+var gridListner;
+
 $(document).ready(function() {
 
 	// Initialize Firebase
@@ -267,11 +272,13 @@ $(document).ready(function() {
   
 
     //Populate channel list
-	channelRef.on("value", function(snapshot){
+	channelLister = channelRef.on("value", function(snapshot){
+		console.log("channelListner");
+		if(channelListner != undefined){
+			channelRef.off('value',channelListner);
+		}
 
 
-
-		console.log(loggedUser);
 
 
 		var snapshotData = snapshot.val();
@@ -284,7 +291,6 @@ $(document).ready(function() {
 			`);
 		}
 		else{
-			console.log(loggedUser);
 			var keys = Object.keys(snapshotData);
 
 			//populate the list but clear it first
@@ -296,7 +302,6 @@ $(document).ready(function() {
 						 <a class="channel-link" id="channel-${keys[i]}" data-id="${keys[i]}">${snapshotData[keys[i]].name}</a>
 				`);
 
-				console.log(loggedUser);
                 if(loggedUser.id == snapshotData[keys[i]].owner){
                 	$("#channel-list").append(`
                 		 <i class="glyphicon glyphicon-cog pull-right channel-settings" id="channel-setting-${keys[i]}" data-id="${keys[i]}"></i>
@@ -447,7 +452,6 @@ $(document).ready(function() {
 	    	
 	    isDM();
 
-
 	    //clear the table button
 	    $('#clear-table').click(function(e){
 	    	$('divCell').attr('class','divCell gridbox');
@@ -458,8 +462,11 @@ $(document).ready(function() {
 	    	refreshGrid(gridRef,currChannel.id);
 	    });
 
+
 		refreshGrid(gridRef,currChannel.id);
 	    refreshMessages(messageRef,currChannel.id);
+
+
 
 	});
 	//End of channelRef.on
@@ -576,11 +583,13 @@ function addChannel (channelName, channelDesc, owner, ref){
 
 
 
-
-
 //taking the message function out of main and putting it here so its easier to user
 function refreshMessages (messageRef,channelID){
 	//check for a empty message library
+	if(messageListner != undefined){
+		messageListner.off();
+	}
+
 	if(messageRef.child(channelID) == null){
 		$('#chat-box').html(`
 			<p class="message">No messages here yet</p>
@@ -588,7 +597,8 @@ function refreshMessages (messageRef,channelID){
 	}
 	// Otherwise fill message list from firebase
 	else{
-		messageRef.child(channelID).on('value',function(snapshot){
+		messageListner = messageRef.child(channelID);
+		messageListner.on('value',function(snapshot){
 			var messages = snapshot.val();
 
 			//clear the box before we start appending
@@ -607,7 +617,12 @@ function refreshMessages (messageRef,channelID){
 //refresh the grid
 function refreshGrid(gridRef, channelID){
 	//empty grid doesn't affect anything, so we don't have a case for it
-	gridRef.child(channelID).on('value',function(snapshot){
+	if(gridListner != undefined){
+		gridListner.off();
+	}
+
+	gridListner = gridRef.child(channelID);
+	gridListner.on('value',function(snapshot){
 		var grid = snapshot.val();
 		$('.divCell').attr('class', 'divCell gridbox');
 		$('.map-furniture-img').attr('src', "borderclear.png");
@@ -692,6 +707,7 @@ function isDM (){
 	// if(loggedUser.currDM){
 
 	// }
+
 	return isDM;
 
 }
