@@ -9,11 +9,45 @@ body,html{
 }
 
 
- body {
-    overflow-x: hidden;
- 	/*this should be 100% but when i put 100% it doesn't go above 64px make sure I ask rob about this*/
- 	
- }
+body {
+	overflow-x: hidden;
+	/*this should be 100% but when i put 100% it doesn't go above 64px make sure I ask rob about this*/
+	
+}
+
+
+i{
+	transition: all .1s ease-in-out;
+
+}
+
+i:hover{
+	transform: scale(1.1);
+}
+
+#d20-img{
+	transition: all .5s ease;
+}
+
+#d20-img:hover{
+	-ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Safari */
+    transform: rotate(360deg);
+}
+
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+a:focus{
+	text-decoration: none;
+
+}
 
 /* Toggle Styles */
 
@@ -37,9 +71,10 @@ body,html{
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #70060b;
-    border-right-color: #3e2611;
-    border-right-style: solid;
+    background: #ffffff;
+
+
+    box-shadow: 0 1px 8px 0 rgba(5,5,40,0.2), 0 3px 3px -2px rgba(5,5,40,0.12), 0 3px 4px 0 rgba(5,5,40,0.14);
 
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -125,7 +160,7 @@ h5,
 h6,
 p,
 a{
-	font-family: 'Laila', serif;
+	font-family: 'Nunito Sans', sans-serif;
 	line-height: 14px;
 }
 
@@ -142,27 +177,32 @@ a{
 }
 
 #logo{
-	font-family: 'Metamorphous', cursive;
-	color:#e3e292;
-	text-shadow: 1px 1px #bc8f65;
+	font-family: 'Ruslan Display', cursive;	
+	color:#333;
 	font-size: 26px;
+	word-wrap: normal;
+
+	white-space: nowrap;
 
 }
 
 /* Header things*/
 
 #header{
-	font-family: 'Metamorphous', cursive;
+	font-family: 'Ruslan Display', cursive;	
 	position: absolute;
 	top:0;
 	left:0;
 	right:0;
-	height:100%;
-	background-color: #4c2c1f;
+	
+	background-color: #45A0D1;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
-	border-bottom-width: 2px;
-	border-bottom-style: solid;
+
+	z-index:900;
+	
+	box-shadow: 0 3px 4px 0 rgba(5,5,40,0.14),0 3px 3px -2px rgba(5,5,40,0.12),0 1px 8px 0 rgba(5,5,40,0.2)
+
 
 }
 
@@ -173,14 +213,24 @@ a{
 	top: 0;
 	bottom: 0;
 	right: 0;
-	height: 70px;
+	height: 48px;
 	width: 70px;
 	text-align: center;
+
+	background-color: #45a0d1;
+
+	z-index: 102;
+
+	color: #333;
+
+
+
+
 }
 
 
-#dice-dropdown-window{
-
+#dice-dropdown-list{
+	border-radius: 0;
 }
 
 #d20-img{
@@ -190,32 +240,32 @@ a{
 }
 
 #dice-dropdown-list{
-	background-color: #70060b;
+	background-color: #1986C1;
+	box-shadow: 0 3px 4px 0 rgba(5,5,40,0.14),0 3px 3px -2px rgba(5,5,40,0.12),0 1px 8px 0 rgba(5,5,40,0.2);
 }
 
 #dice-dropdown-list a{
-	color: #e3e292;
+	color: #333;
 }
 
 
 #menu-toggle{
 	float:left;
-	margin-top: 10px;
+	margin-top: 17px;
 	margin-right: 15px;
 	margin-left: 10px;	
-	color: #cd000a;
-	background-color: #e3e292; 
+	color: #021944;
+	background-color: #fefefe; 
 	border-style: none;
 
 	margin-left: 0;
-	border-top-left-radius: 0;
-	border-bottom-left-radius: 0;
+	border-radius: 0;
 
 }
 
 
 #login-modal-btn{
-	color: #cd000a;
+	color: #fefefe;
 	background-color: #e3e292;
 }
 
@@ -228,7 +278,7 @@ a{
 	bottom: 246px;
 	left:0;
 	right:0;
-	margin: 0 0 0 0;
+	margin: 0 0 2px 0;
 	padding: 0 0 0 0;
 
 /*	overflow-x: scroll;
@@ -239,11 +289,6 @@ a{
 /* chat section */
 
 #chat-box{
-	border-top-style: solid;
-	border-top-width: 2px;
-
-	border-top-style: solid;
-	border-top-width: 2px;
 
 	overflow-x: auto;
 
@@ -256,30 +301,53 @@ a{
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 
+	padding-top: 5px;
+
+	border-top-color: #dddddd;
+	border-top-style: solid;
+	border-top-width: 1px;
+
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #dddddd;
+
+
 	z-index: 100;
-	background-color: #f2e2ae;
+	background-color: #fefefe;
 }
 
-#text-line-window,
+
 #text-line{
 	position:absolute;
 	bottom: 0;
 	left:0;
 	right:0;
 	margin: 0 0 0 0;
-	padding: 0 0 0 0;
+	
 
 	overflow: scroll;
 	overflow-x: hidden;
 
-	background-color: #f2e2ae;
+	background-color: #fefefe;
 
 	z-index: 101;
 }
 
+.text-line-window{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0 0 0 0;
+	
+
+	height: 46px;
+	width: 100%;
+}
+
 #text-line{
-	border-color: #4c2c1f;
-	font-family: 'Laila', serif;
+	border-color: #fefefe;
+	font-family: 'Nunito Sans', sans-serif;
 	border-radius: 0;
 	border-left-style: none;
 	border-right-style: none;
@@ -287,9 +355,9 @@ a{
 
 .message{
 	padding-top: 5px;
+	padding-left: 10px;
 	font-size: 16px;
 	line-height: 16px;
-	padding-left: 3px;
 }
 
 
@@ -322,7 +390,8 @@ a{
 
 #divTable{
 
-	display: block;	position:absolute;
+	display: block;	
+	position:absolute;
 	top:0;
 	bottom:0;
 	left:0;
@@ -355,7 +424,7 @@ a{
 	float:left;
 	border-style: solid;
 	border-width: 1px;
-	border-color: rgba(35,35,35,0.7);
+	border-color: #9cd4f2;
 
 }
 
@@ -642,33 +711,38 @@ a{
 /*Channel things on sidebar*/
 
 .channel-link{
-	color: #f2e2ae;
-	text-shadow: 1px 1px #bc8f65;
+	color: #110C10;
 	margin-left: 20px;
-	margin-top:5px;
+	
+
+	padding-top: 5px;
+
 }
 
 
+.channel{
+	padding-top: 10px;
+}
+
 .channel-link:hover{
-	color: white;
-	font-size: 16px;
+	color: #6E9EFF;
 	text-decoration: none;
 
 }
 
 .channel-header {
-	font-family: 'Metamorphous', cursive;
-	color:#e3e292;
-	text-shadow: 1px 1px #bc8f65;
+	font-family: 'Ruslan Display', cursive;	
+	color: #333;
 	font-size: 24px;
-	padding-bottom: 20px;
+
+	margin-left: 10px;
 
 }
 
 .channel-current{
 	font-size: 18px;
-	font-weight: 500;
-	font-style: italic;
+	font-weight: 600;
+	
 }
 
 
@@ -676,27 +750,30 @@ a{
 
 #channel-desc{
 	font-weight: 300;
-	font-family: 'Laila', serif;
-	color:#e3e292;
-	font-style:italic;
+	font-family: 'Nunito Sans', sans-serif;
+	color:#;
+	
 	font-size: 16px;
 	margin-left: 70px;
 }
 
 #channel-name{
-	font-size: 36px;
+	font-size: 24px;
 	padding-bottom:0px; 
 	padding-top:0px;
-	color: #f2e2ae;
-	text-shadow: 1px 1px #bc8f65;
+	color: #333;
+	font-family: 'Ruslan Display', cursive;
 }
 
 #channel-wrapper{
-	padding-top: 15px;
+	position: absolute;
+	top: 68px;
+	width: 100%;
+	
 }
 
 .channel-settings{
-	color:black;
+	color:#333;
 	padding-right: 7px;
 }
 
@@ -718,6 +795,21 @@ a{
 
 /*section with buttons on sidebar*/
 
+#brand{
+	
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 68px;
+
+	background-color: #1986C1;
+
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #dddddd;
+}
+
+
 #options{
 	position: absolute;
 	bottom: 0;
@@ -725,31 +817,58 @@ a{
 	right: 0;
 	height: 100px;
 
-	background-color: #FF3848;
+	background-color: #fafafa;
 
 	border-top-style:solid; 
-	border-top-width:5px;
-	border-top-color:#3e2611; 
+	border-top-width:1px;
+	border-top-color:#dddddd; 
 }
 
 #make-channel-btn{
-	width: 30px !important; 
-	height: 30px !important;
-	outline-offset: 0px;
-	text-align: center !important;
-	outline-width: 1px;
-	outline-color: #4c2c1f;
-	background-color: #e3e292;
-	color:#cd000a;
+	position: absolute;
+	right: 15px;
+	top:8px;
 
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
+	border-radius: 0;
 
-
-	padding: 0;
+	border-style: none;
+	background-color: rgba(255,255,255,0);
 
 }
 
+
+#channel-brand{
+	height: 50px;
+	position: absolute;
+	top:0;
+	width: 100%;
+
+
+	border-bottom-style: solid;
+	border-bottom-color: #dddddd;
+	border-bottom-width: 1px;
+}
+
+
+
+#make-channel-btn-div{
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 71px;
+
+
+	border-left-color: #dddddd;
+	border-left-style: solid;
+	border-left-width: 1px;
+}
+
+#channel-list{
+	position: absolute;
+	top: 60px;
+	width: 100%;
+}
 
 #logout-modal-btn{
 	border-style: none;
@@ -757,6 +876,9 @@ a{
 	color: white;
 }
 
+#div-table{
+	margin-bottom: 4px;
+}
 
 /*User information section*/
 
@@ -772,7 +894,7 @@ a{
 }
 
 #username{
-	color: #f2e2ae;
+	color: #110C10;
 	text-align: left;
 }
 
@@ -960,6 +1082,7 @@ a{
 	#channel-desc{
 		font-size: 10px;
 		line-height: 10px;
+
 	}
 
 
