@@ -12,8 +12,8 @@
         <link rel='stylesheet' type='text/css' href='css/style.css'>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Metamorphous|Source+Code+Pro" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Laila:300,400,500,600,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ruslan+Display" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600" rel="stylesheet">
 
     </head>
     
@@ -25,21 +25,28 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-
+            <div id="brand" class="text-center">
                 <h1 id="logo">
                     Text And Paper
                 </h1>
+            </div>
+            <ul class="sidebar-nav">
+
+
 
                 <div id="channel-wrapper">
-                    <li>
-                        <div class="pull-right">
+
+                    
+                    <div id="channel-brand" >
+                        <h2 class="channel-header">Channels</a>
+                        
+                        <div id="make-channel-btn-div">
                             <button type="button" class="btn btn-flat" id="make-channel-btn" data-toggle="modal" data-target="#new-channel-modal">
                                 <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
                             </button>
                         </div>
-                        <h2 class="channel-header">Channels</a>
-                    </li>
+                    </div>
+
 
                     <div id="channel-list"> 
 
@@ -50,35 +57,6 @@
 
 
                 <div id="options">
-
-                        <!-- This is a little window with the username and profile pic, as well as a login and setting buttons -->
-                        <div class="logged-user">
-                            <div class="user-info">
-                                <!-- Users Profile picture, taken from whatevr social media they log in with -->
-                                <img id="profile-pic" class="img-circle" src="assets/profile_default.jpg">
-
-                                <span id="username"> Default </span>
-                                <p id="is-dm" class="glyphicon glyphicon-king"></p>
-
-                            </div>
-                        </div>
-
-
-
-
-
-                        <button type="button" id="logout-modal-btn" class="btn btn-xs" data-toggle="modal" data-target="#logout-modal">
-                            Logout
-                        </button>
-
-
-
-
-
-                        <!-- Settings Button opens userSettingModal -->
-                        <button type="button" class="btn btn-flat btn-xs pull-right glyphicon glyphicon-cog" id="user-settings-modal-btn" data-toggle="modal" data-target="#user-settings-modal">
-
-                        </button>
 
 
 
@@ -99,61 +77,34 @@
 
                     <div id="header" class="col-lg-12 col-sm-12">
                         
+                        <!-- This is a little window with the username and profile pic, as well as a login and setting buttons -->
+                        <div class="logged-user pull-right">
+                            <div class="user-info">
+                                <!-- Users Profile picture, taken from whatevr social media they log in with -->
+                                
 
-                        <div id="dice-dropdown-window" class="dropdown pull-right">
+                                <span id="username"> Default </span>
 
-                            <!-- Dropdown menu you can use to roll dice -->            
-                            <a href="#" class="dropdown-toggle" id="dice-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <img class="img-responsive" id="d20-img" src="assets/d20.png" 
-                                onmouseover="this.src='assets/d20hover.png';" onmouseout="this.src='assets/d20.png';">
-                            </a>
 
-                            <ul class="dropdown-menu" id="dice-dropdown-list" aria-labelledby="dice-dropdown">
-                                <!-- d2 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d2-btn">d2</a>
-                                </li>
-                                <!-- d3 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d3-btn">d3</a>
-                                </li>
-                                <!-- d4 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d4-btn">d4</a>
-                                </li>
-                                <!-- d6 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d6-btn">d6</a>
-                                </li>
-                                <!-- d8 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d8-btn">d8</a>
-                                </li>
-                                <!-- d10 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d10-btn">d10</a>
-                                </li>
-                                <!-- d12 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d12-btn">d12</a>
-                                </li>
-                                <!-- d20 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d20-btn">d20</a>
-                                </li>
-                                <!-- d100 -->
-                                <li>
-                                    <a href="#" class="dice-selector" id="d100-btn">d100</a>
-                                </li>
+                                
+                        
+                                <p id="is-dm" class="glyphicon glyphicon-king"></p>
+                                <img id="profile-pic" class="img-circle" src="assets/profile_default.jpg">
 
-                            </ul> 
+                                <button type="button" id="logout-modal-btn" class="btn btn-xs" data-toggle="modal" data-target="#logout-modal">
+                                    Logout
+                                </button>
+
+
+
+                            <!-- Settings Button opens userSettingModal -->
+                            <!-- <button type="button" class="btn btn-flat btn-xs pull-right glyphicon glyphicon-cog" id="user-settings-modal-btn" data-toggle="modal" data-target="#user-settings-modal">
+
+                            </button> -->
+
+
+                            </div>
                         </div>
-
-
-
-
-
-
 
 
                         <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
@@ -274,7 +225,63 @@
 
                     <div class="text-line-window">
                         <input type="text" id="text-line" class="form-control input-lg" placeholder="Message">
+                        
+
+                        <div id="rollDiceBtn">
+                            
+                            <div id="dice-dropdown-window" class="dropup pull-right">
+
+                                <!-- Dropdown menu you can use to roll dice -->            
+                                <a href="#" class="dropdown-toggle text-center" id="dice-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Roll
+                                   <!--  <img class="img-responsive" id="d20-img" src="assets/d20.png" 
+                                    onmouseover="this.src='assets/d20hover.png';" onmouseout="this.src='assets/d20.png';"> -->
+                                </a>
+
+                                <ul class="dropdown-menu" id="dice-dropdown-list" aria-labelledby="dice-dropdown">
+                                    <!-- d2 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d2-btn">d2</a>
+                                    </li>
+                                    <!-- d3 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d3-btn">d3</a>
+                                    </li>
+                                    <!-- d4 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d4-btn">d4</a>
+                                    </li>
+                                    <!-- d6 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d6-btn">d6</a>
+                                    </li>
+                                    <!-- d8 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d8-btn">d8</a>
+                                    </li>
+                                    <!-- d10 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d10-btn">d10</a>
+                                    </li>
+                                    <!-- d12 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d12-btn">d12</a>
+                                    </li>
+                                    <!-- d20 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d20-btn">d20</a>
+                                    </li>
+                                    <!-- d100 -->
+                                    <li>
+                                        <a href="#" class="dice-selector" id="d100-btn">d100</a>
+                                    </li>
+
+                                </ul> 
+                            </div>
+                        </div>
                     </div>
+
+
+
 
 
                 
@@ -327,8 +334,6 @@
                     </div>    
 
                     <!-- This will present you with a few options for how you want to login -->
-                    
-
                     <div class="modal-body text-center" id="login-modal-body">
                         <br>
                         <div class="row">
